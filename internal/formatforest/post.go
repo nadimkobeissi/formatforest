@@ -12,7 +12,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/russross/blackfriday/v2"
+	"github.com/gomarkdown/markdown"
 )
 
 type postConfig struct {
@@ -44,7 +44,7 @@ func postRead(file os.FileInfo) post {
 	date := dateRegex.FindString(fileName)
 	tag := tagRegex.FindString(fileName)
 	postConfig, postMdContent := parsePost(postMd)
-	postHtmlContent := string(blackfriday.Run([]byte(postMdContent)))
+	postHtmlContent := string(markdown.ToHTML([]byte(postMdContent), nil, nil))
 	if len(date) == 0 {
 		ErrorExit(errors.New("date must be in yyyy-mm-dd format"))
 	}

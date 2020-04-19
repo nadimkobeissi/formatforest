@@ -9,7 +9,6 @@ import (
 	"os"
 
 	"formatforest.com/internal/formatforest"
-	"github.com/logrusorgru/aurora"
 )
 
 var version = "0.0.0"
@@ -24,8 +23,7 @@ func main() {
 }
 
 func mainIntro() {
-	fmt.Fprintf(os.Stdout,
-		aurora.Bold("FormatForest %s - %s\n\n").String(),
+	fmt.Fprintf(os.Stdout, "FormatForest %s - %s\n\n",
 		version, "https://formatforest.com",
 	)
 }
