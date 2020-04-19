@@ -34,11 +34,11 @@ lint:
 
 clean:
 	@/bin/echo -n "[FF] Cleaning up..."
-	@$(RM) cmd/verifpal/resource.syso
-	@$(RM) build/windows/ff.exe
-	@$(RM) build/linux/ff
-	@$(RM) build/macos/ff
-	@$(RM) build/freebsd/ff
+	@$(RM) -f cmd/formatforest/resource.syso
+	@$(RM) build/windows/formatforest.exe
+	@$(RM) build/linux/formatforest
+	@$(RM) build/macos/formatforest
+	@$(RM) build/freebsd/formatforest
 	@$(RM) -rf dist
 	@/bin/echo "                   OK"
 
