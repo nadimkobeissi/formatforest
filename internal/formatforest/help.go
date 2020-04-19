@@ -12,9 +12,8 @@ import (
 // Help displays FormatForest command-line usage instructions.
 func Help() {
 	fmt.Fprintf(os.Stdout, strings.Join([]string{
-		"format:  TBD.",
-		"sync:    TBD.",
-		"clean:   TBD.",
+		"format:  Generate public static directory.",
+		"sync:    Sync with remote server via rsync. ",
 		"help:    Show this help text.",
 	}, "\n"))
 }
