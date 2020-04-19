@@ -4,6 +4,7 @@
 package formatforest
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -44,11 +45,12 @@ func postRead(file os.FileInfo) post {
 	tag := tagRegex.FindString(fileName)
 	postConfig, postMdContent := parsePost(postMd)
 	postHtmlContent := string(blackfriday.Run([]byte(postMdContent)))
-	// TODO: validate date
-	// TODO: validate tag
-	// TODO: validate title
-	// TODO: validate description
-	// TODO: validate image
+	if len(date) == 0 {
+		errorExit(errors.New("date must be in yyyy-mm-dd format"))
+	}
+	if len(tag) == 0 {
+		errorExit(errors.New("tag must be a single word between 1 and 32 characters"))
+	}
 	return post{
 		date:    date,
 		tag:     tag,
