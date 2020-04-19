@@ -6,7 +6,7 @@
 
 ### Configuration Tags
 - `WebsiteName`: 
-- `WebsiteURI`:
+- `WebsiteUri`:
 - `WebsiteDescription`:
 - `WebsiteIcon`:
 - `WebsiteTwitter`:
@@ -21,13 +21,18 @@
 - `WebsiteLang`: (Default: `"en"`)
 - `WebsiteLangDir`: (Default: `"ltr"`)
 
-### Standard Tags
-- `CurrentYear`:
-
-### Post Tags
+### Post Configuration Tags
 - `PostTitle`:
 - `PostDescription`:
-- `PostContent`:
+- `PostImage`:
+
+### Post Tags
 - `PostDate`:
 - `PostTag`:
+- `PostContent`:
 - `PostList`:
+- `PostRss`:
+- `PostRssDate`:
+
+### Miscellaneous Tags
+- `CurrentYear`:

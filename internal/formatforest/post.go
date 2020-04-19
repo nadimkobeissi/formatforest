@@ -4,129 +4,76 @@
 package formatforest
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"regexp"
 	"strings"
-	"time"
 )
 
+type postConfig struct {
+	PostTitle       string
+	PostDescription string
+	PostImage       string
+}
 type post struct {
 	date    string
 	tag     string
-	title   string
-	descr   string
-	image   string
+	config  postConfig
 	content string
 }
 
-func postHarvest(file os.FileInfo) (post, bool) {
+func postConfigParse(postMd string) (postConfig, string) {
+	var postConfigJson postConfig
+	postConfigText := strings.Join(strings.Split(postMd, "\n")[1:4], "\n")
+	err := json.Unmarshal([]byte(postConfigText), &postConfigJson)
+	if err != nil {
+		errorExit(err)
+	}
+	postMdContent := strings.Join(strings.Split(postMd, "\n")[5:], "\n")
+	return postConfigJson, postMdContent
+}
+
+func postRead(file os.FileInfo) post {
 	fileBytes, err := ioutil.ReadFile(
 		fmt.Sprintf("posts/%s", file.Name()),
 	)
 	if err != nil {
 		errorExit(err)
 	}
-	content := string(fileBytes)
-	if len(content) == 0 {
-		return post{}, false
+	postMd := string(fileBytes)
+	if len(postMd) == 0 {
+		errorExit(fmt.Errorf("could not read post at %s", file.Name()))
 	}
 	dateRegex := regexp.MustCompile(`^\d{4}-\d{2}-\d{2}`)
 	tagRegex := regexp.MustCompile(`\w{1,32}\.html`)
-	titleRegex := regexp.MustCompile(`\[\[TITLE\]\]:.+`)
-	descrRegex := regexp.MustCompile(`\[\[DESCR\]\]:.+`)
-	imageRegex := regexp.MustCompile(`\[\[IMAGE\]\]:.+`)
 	date := dateRegex.FindString(file.Name())
 	tag := tagRegex.FindString(file.Name())
-	title := titleRegex.FindString(content)
-	descr := descrRegex.FindString(content)
-	image := imageRegex.FindString(content)
-	switch 0 {
-	case len(date), len(tag), len(title), len(descr), len(image):
-		return post{}, false
-	}
-	if err != nil {
-		errorExit(err)
-	}
+	postConfig, postMdContent := postConfigParse(postMd)
+	// TODO: validate date
+	// TODO: validate tag
+	// TODO: validate title
+	// TODO: validate description
+	// TODO: validate image
 	return post{
 		date:    date,
 		tag:     tag[:len(tag)-5],
-		title:   title[10:],
-		descr:   descr[10:],
-		image:   image[10:],
-		content: content,
-	}, true
+		config:  postConfig,
+		content: postMdContent,
+	}
 }
 
-func postsHarvest() []post {
+func postReadAll() []post {
 	posts := []post{}
 	dirInfo, err := ioutil.ReadDir("posts")
 	if err != nil {
 		errorExit(err)
 	}
 	for _, file := range dirInfo {
-		p, v := postHarvest(file)
-		if v {
-			posts = append([]post{p}, posts...)
-		}
+		posts = append([]post{
+			postRead(file),
+		}, posts...)
 	}
 	return posts
-}
-
-func postsRewrite(html string, post post) string {
-	t, _ := time.Parse("2006-01-02", post.date)
-	html = strings.ReplaceAll(
-		html, "{{DATE}}", post.date,
-	)
-	html = strings.ReplaceAll(
-		html, "{{RSSDATE}}", t.Format(time.RFC1123Z),
-	)
-	html = strings.ReplaceAll(
-		html, "{{TAG}}", post.tag,
-	)
-	html = strings.ReplaceAll(
-		html, "{{TITLE}}", post.title,
-	)
-	html = strings.ReplaceAll(
-		html, "{{DESCR}}", post.descr,
-	)
-	html = strings.ReplaceAll(
-		html, "{{IMAGE}}", post.image,
-	)
-	html = strings.ReplaceAll(
-		html, "{{CONTENT}}", post.content,
-	)
-	return html
-}
-
-func postsList(posts []post) string {
-	postsListHtml := []string{}
-	for _, post := range posts {
-		postsListHtml = append(postsListHtml, fmt.Sprintf(
-			"<li><em>%s:</em> <a href=\"posts/%s-%s.html\">%s</a></li>",
-			post.date, post.date, post.tag, post.title,
-		))
-	}
-	return strings.Join(postsListHtml, "\n")
-}
-
-func postsRss(posts []post) string {
-	postsRssXml := []string{}
-	for _, post := range posts {
-		postRssXml := strings.Join([]string{
-			"<item>",
-			"<title>{{TITLE}}</title>",
-			"<link>https://nadim.computer/posts/{{DATE}}-{{TAG}}.html</link>",
-			"<dc:creator><![CDATA[Nadim Kobeissi]]></dc:creator>",
-			"<pubDate>{{RSSDATE}}</pubDate>",
-			"<description><![CDATA[{{DESCR}}]]></description>",
-			"<content:encoded><![CDATA[{{CONTENT}}]]></content:encoded>",
-			"<media:thumbnail url=\"https://nadim.computer/posts/res/img/{{IMAGE}}\" />",
-			"</item>",
-		}, "\n")
-		postRssXml = postsRewrite(postRssXml, post)
-		postsRssXml = append(postsRssXml, postRssXml)
-	}
-	return strings.Join(postsRssXml, "\n")
 }

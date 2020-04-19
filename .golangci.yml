@@ -10,6 +10,7 @@ linters:
         - govet
         - errcheck
         - staticcheck
+        - unused
         - gosimple
         - gofmt
         - structcheck

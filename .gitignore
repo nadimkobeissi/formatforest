@@ -1,1 +1,5 @@
 .DS_Store
+build/windows/formatforest.exe
+build/linux/formatforest
+build/macos/formatforest
+build/freebsd/formatforest
