@@ -13,7 +13,7 @@ import (
 func Help() {
 	fmt.Fprintf(os.Stdout, strings.Join([]string{
 		"format:  TBD.",
-		"publish: TBD.",
+		"sync:    TBD.",
 		"clean:   TBD.",
 		"help:    Show this help text.",
 	}, "\n"))

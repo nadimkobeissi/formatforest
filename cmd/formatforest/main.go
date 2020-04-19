@@ -4,6 +4,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 
@@ -14,10 +15,9 @@ import (
 var version = "0.0.0"
 
 func main() {
-	switch len(os.Args) {
-	case 2:
+	if len(os.Args) >= 2 {
 		mainEntry(os.Args)
-	default:
+	} else {
 		mainIntro()
 		formatforest.Help()
 	}
@@ -34,11 +34,21 @@ func mainEntry(args []string) {
 	switch args[1] {
 	case "format":
 		mainIntro()
+		if len(args) != 2 {
+			formatforest.ErrorExit(errors.New("format requires zero arguments"))
+		}
 		formatforest.Format()
-	case "publish":
+	case "sync":
 		mainIntro()
+		if len(args) != 5 {
+			formatforest.ErrorExit(errors.New("sync requires three arguments"))
+		}
+		formatforest.Sync(args[2], args[3], args[4])
 	case "clean":
 		mainIntro()
+		if len(args) != 5 {
+			formatforest.ErrorExit(errors.New("clean requires zero arguments"))
+		}
 	default:
 		mainIntro()
 		formatforest.Help()

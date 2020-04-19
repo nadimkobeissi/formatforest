@@ -8,6 +8,6 @@ import (
 	"log"
 )
 
-func errorExit(err error) {
-	log.Fatal(fmt.Errorf("[FF] Error: %v.\n", err))
+func ErrorExit(err error) {
+	log.Fatal(fmt.Errorf("[FormatForest] Error: %v.\n", err))
 }

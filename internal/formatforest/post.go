@@ -32,11 +32,11 @@ func postRead(file os.FileInfo) post {
 		path.Join("posts", file.Name()),
 	)
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 	postMd := string(fileBytes)
 	if len(postMd) == 0 {
-		errorExit(fmt.Errorf("could not read post at %s", file.Name()))
+		ErrorExit(fmt.Errorf("could not read post at %s", file.Name()))
 	}
 	fileName := strings.TrimSuffix(file.Name(), ".md")
 	dateRegex := regexp.MustCompile(`^\d{4}-\d{2}-\d{2}`)
@@ -46,10 +46,10 @@ func postRead(file os.FileInfo) post {
 	postConfig, postMdContent := parsePost(postMd)
 	postHtmlContent := string(blackfriday.Run([]byte(postMdContent)))
 	if len(date) == 0 {
-		errorExit(errors.New("date must be in yyyy-mm-dd format"))
+		ErrorExit(errors.New("date must be in yyyy-mm-dd format"))
 	}
 	if len(tag) == 0 {
-		errorExit(errors.New("tag must be a single word between 1 and 32 characters"))
+		ErrorExit(errors.New("tag must be a single word between 1 and 32 characters"))
 	}
 	return post{
 		date:    date,
@@ -63,7 +63,7 @@ func postReadAll() []post {
 	posts := []post{}
 	dirInfo, err := ioutil.ReadDir("posts")
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 	for _, file := range dirInfo {
 		posts = append([]post{

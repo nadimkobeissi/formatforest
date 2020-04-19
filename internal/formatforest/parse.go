@@ -30,18 +30,18 @@ func parseConfig() config {
 	configJson := config{}
 	configBytes, err := ioutil.ReadFile("config.json")
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 	configText := string(configBytes)
 	err = json.Unmarshal([]byte(configText), &configJson)
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 	if len(configJson.WebsiteName) == 0 {
-		errorExit(errors.New("invalid WebsiteName in config.json"))
+		ErrorExit(errors.New("invalid WebsiteName in config.json"))
 	}
 	if len(configJson.WebsiteUri) == 0 {
-		errorExit(errors.New("invalid WebsiteUri in config.json"))
+		ErrorExit(errors.New("invalid WebsiteUri in config.json"))
 	}
 	if len(configJson.WebsiteIcon) == 0 {
 		configJson.WebsiteIcon = "formatforest.png"
@@ -53,7 +53,7 @@ func parseConfig() config {
 		configJson.WebsiteLangDir = "ltr"
 	}
 	if len(configJson.AuthorName) == 0 {
-		errorExit(errors.New("invalid AuthorName in config.json"))
+		ErrorExit(errors.New("invalid AuthorName in config.json"))
 	}
 	return configJson
 }
@@ -63,7 +63,7 @@ func parsePost(postMd string) (postConfig, string) {
 	postConfigText := strings.Join(strings.Split(postMd, "\n")[0:5], "\n")
 	err := json.Unmarshal([]byte(postConfigText), &postconfig)
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 	postMdContent := strings.Join(strings.Split(postMd, "\n")[5:], "\n")
 	return postconfig, postMdContent

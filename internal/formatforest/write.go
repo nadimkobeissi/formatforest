@@ -18,14 +18,14 @@ func writeFolders() {
 	if err != nil || !publicFolderInfo.IsDir() {
 		err = os.Mkdir("public", 0755)
 		if err != nil {
-			errorExit(err)
+			ErrorExit(err)
 		}
 	}
 	postsFolderInfo, err := os.Stat(path.Join("public", "posts"))
 	if err != nil || !postsFolderInfo.IsDir() {
 		err = os.Mkdir(path.Join("public", "posts"), 0755)
 		if err != nil {
-			errorExit(err)
+			ErrorExit(err)
 		}
 	}
 }
@@ -35,7 +35,7 @@ func writeHome(posts []post, config config) {
 		path.Join("templates", "home.html"),
 	)
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 	homeHtml := formatStandard(string(homeHtmlBytes), config)
 	homeHtml = strings.ReplaceAll(
@@ -46,7 +46,7 @@ func writeHome(posts []post, config config) {
 		[]byte(homeHtml), 0755,
 	)
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 }
 
@@ -55,7 +55,7 @@ func writePosts(posts []post, config config) {
 		path.Join("templates", "post.html"),
 	)
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 	for _, post := range posts {
 		postHtml := formatPost(string(postHtmlBytes), post, config)
@@ -65,7 +65,7 @@ func writePosts(posts []post, config config) {
 					post.date, post.tag,
 				)), []byte(postHtml), 0755)
 		if err != nil {
-			errorExit(err)
+			ErrorExit(err)
 		}
 	}
 }
@@ -75,7 +75,7 @@ func writeRss(posts []post, config config) {
 		"templates/rss.xml",
 	)
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 	postsRssXml := strings.ReplaceAll(
 		string(postsRssXmlBytes),
@@ -86,13 +86,13 @@ func writeRss(posts []post, config config) {
 		[]byte(postsRssXml), 0755,
 	)
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 }
 
 func writeRes() {
 	err := copy.Copy("res", path.Join("public", "res"))
 	if err != nil {
-		errorExit(err)
+		ErrorExit(err)
 	}
 }
