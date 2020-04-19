@@ -6,7 +6,7 @@
 # [Format Forest](https://formatforest.com)
 
 ## What is Format Forest?
-<img src="https://gitlab.com/nadimk/formatforest/-/raw/master/examples/res/img/formatforest.png" alt="" align="left" height="96" style="margin:10px" />
+<img src="https://gitlab.com/nadimk/formatforest/-/raw/master/examples/res/img/formatforest.png" alt="" align="left" height="64" style="margin:10px" />
 
 Format Forest is a simple and elegant blogging engine written in Go.
 
