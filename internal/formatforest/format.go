@@ -10,20 +10,13 @@ import (
 )
 
 func Format() {
-	fmt.Println("[FormatForest] Formatting...")
-	fmt.Println("[FormatForest] Parsing config.json...")
+	fmt.Printf("[FormatForest] Formatting...")
 	config := parseConfig()
-	fmt.Println("[FormatForest] Parsing posts...")
 	posts := postReadAll()
-	fmt.Println("[FormatForest] Writing folders...")
 	writeFolders()
-	fmt.Println("[FormatForest] Writing home...")
 	writeHome(posts, config)
-	fmt.Println("[FormatForest] Writing posts...")
 	writePosts(posts, config)
-	fmt.Println("[FormatForest] Writing RSS...")
 	writeRss(posts, config)
-	fmt.Println("[FormatForest] Writing resources...")
 	writeRes()
 }
 
@@ -120,7 +113,7 @@ func formatPostList(posts []post) string {
 	postListHtml := []string{}
 	for _, post := range posts {
 		postListHtml = append(postListHtml, fmt.Sprintf(
-			"<li><em>%s:</em> <a href=\"posts/%s-%s.html\">%s</a></li>",
+			"<li><em>%s:</em> <a href=\"/posts/%s-%s.html\">%s</a></li>",
 			post.date, post.date, post.tag, post.config.PostTitle,
 		))
 	}

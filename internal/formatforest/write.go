@@ -4,8 +4,6 @@
 package formatforest
 
 import (
-	"encoding/json"
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -14,61 +12,6 @@ import (
 
 	"github.com/otiai10/copy"
 )
-
-func WriteInit(blogFolder string) {
-	fmt.Printf("[FormatForest] Initializing folder %s...\n", blogFolder)
-	_, err := os.Stat(blogFolder)
-	if err == nil {
-		ErrorExit(errors.New("folder already exists"))
-	}
-	err = os.Mkdir(blogFolder, 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
-	err = os.Mkdir(path.Join(blogFolder, "posts"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
-	err = os.Mkdir(path.Join(blogFolder, "public"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
-	err = os.Mkdir(path.Join(blogFolder, "templates"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
-	err = os.Mkdir(path.Join(blogFolder, "res"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
-	err = os.Mkdir(path.Join(blogFolder, "res", "img"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
-	configJson := config{
-		WebsiteName:        "My FormatForest Blog",
-		WebsiteUri:         "https://myblog.com",
-		WebsiteDescription: "Welcome to my personal blog.",
-		WebsiteIcon:        "formatforest.png",
-		WebsiteTwitter:     "forestformat",
-		WebsiteLang:        "en",
-		WebsiteLangDir:     "ltr",
-		AuthorName:         "Format Gardener",
-		AuthorEmail:        "your@email.com",
-		AuthorTwitter:      "yourtwitter",
-		AuthorLinkedIn:     "yourlinkedinid",
-		AuthorFacebook:     "yourfacebookid",
-		AuthorInstagram:    "yourinstagramid",
-	}
-	configJsonBytes, err := json.MarshalIndent(configJson, "", "\t")
-	if err != nil {
-		ErrorExit(err)
-	}
-	err = ioutil.WriteFile(path.Join(blogFolder, "config.json"), configJsonBytes, 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
-}
 
 func writeFolders() {
 	publicFolderInfo, err := os.Stat("public")

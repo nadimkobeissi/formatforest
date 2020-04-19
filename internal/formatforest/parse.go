@@ -28,7 +28,7 @@ type config struct {
 
 func parseConfig() config {
 	configJson := config{}
-	configBytes, err := ioutil.ReadFile("config.json")
+	configBytes, err := ioutil.ReadFile("config.txt")
 	if err != nil {
 		ErrorExit(err)
 	}
@@ -38,10 +38,10 @@ func parseConfig() config {
 		ErrorExit(err)
 	}
 	if len(configJson.WebsiteName) == 0 {
-		ErrorExit(errors.New("invalid WebsiteName in config.json"))
+		ErrorExit(errors.New("invalid WebsiteName in config.txt"))
 	}
 	if len(configJson.WebsiteUri) == 0 {
-		ErrorExit(errors.New("invalid WebsiteUri in config.json"))
+		ErrorExit(errors.New("invalid WebsiteUri in config.txt"))
 	}
 	if len(configJson.WebsiteIcon) == 0 {
 		configJson.WebsiteIcon = "formatforest.png"
@@ -53,7 +53,7 @@ func parseConfig() config {
 		configJson.WebsiteLangDir = "ltr"
 	}
 	if len(configJson.AuthorName) == 0 {
-		ErrorExit(errors.New("invalid AuthorName in config.json"))
+		ErrorExit(errors.New("invalid AuthorName in config.txt"))
 	}
 	return configJson
 }

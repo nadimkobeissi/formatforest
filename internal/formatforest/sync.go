@@ -16,7 +16,7 @@ func Sync(user string, host string, targetDir string) {
 }
 
 func syncExec(user string, host string, targetDir string) {
-	fmt.Println("[FormatForest] Syncing...")
+	fmt.Printf("[FormatForest] Syncing...")
 	arg := fmt.Sprintf("%s@%s:%s", user, host, targetDir)
 	rsync := exec.Command("rsync", "-av", "--delete", ".", arg)
 	rsync.Dir = "public"
