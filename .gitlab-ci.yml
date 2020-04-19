@@ -1,0 +1,8 @@
+stages:
+  - lint
+
+lint:
+  image: golangci/golangci-lint:latest
+  stage: lint
+  script:
+    - golangci-lint run
