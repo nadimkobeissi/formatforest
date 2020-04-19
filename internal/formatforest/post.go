@@ -4,12 +4,14 @@
 package formatforest
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path"
 	"regexp"
 	"strings"
+
+	"github.com/russross/blackfriday/v2"
 )
 
 type postConfig struct {
@@ -24,20 +26,9 @@ type post struct {
 	content string
 }
 
-func postConfigParse(postMd string) (postConfig, string) {
-	var postConfigJson postConfig
-	postConfigText := strings.Join(strings.Split(postMd, "\n")[1:4], "\n")
-	err := json.Unmarshal([]byte(postConfigText), &postConfigJson)
-	if err != nil {
-		errorExit(err)
-	}
-	postMdContent := strings.Join(strings.Split(postMd, "\n")[5:], "\n")
-	return postConfigJson, postMdContent
-}
-
 func postRead(file os.FileInfo) post {
 	fileBytes, err := ioutil.ReadFile(
-		fmt.Sprintf("posts/%s", file.Name()),
+		path.Join("posts", file.Name()),
 	)
 	if err != nil {
 		errorExit(err)
@@ -46,11 +37,13 @@ func postRead(file os.FileInfo) post {
 	if len(postMd) == 0 {
 		errorExit(fmt.Errorf("could not read post at %s", file.Name()))
 	}
+	fileName := strings.TrimSuffix(file.Name(), ".md")
 	dateRegex := regexp.MustCompile(`^\d{4}-\d{2}-\d{2}`)
-	tagRegex := regexp.MustCompile(`\w{1,32}\.html`)
-	date := dateRegex.FindString(file.Name())
-	tag := tagRegex.FindString(file.Name())
-	postConfig, postMdContent := postConfigParse(postMd)
+	tagRegex := regexp.MustCompile(`\w{1,32}$`)
+	date := dateRegex.FindString(fileName)
+	tag := tagRegex.FindString(fileName)
+	postConfig, postMdContent := parsePost(postMd)
+	postHtmlContent := string(blackfriday.Run([]byte(postMdContent)))
 	// TODO: validate date
 	// TODO: validate tag
 	// TODO: validate title
@@ -58,9 +51,9 @@ func postRead(file os.FileInfo) post {
 	// TODO: validate image
 	return post{
 		date:    date,
-		tag:     tag[:len(tag)-5],
+		tag:     tag,
 		config:  postConfig,
-		content: postMdContent,
+		content: postHtmlContent,
 	}
 }
 

@@ -10,16 +10,14 @@
 - `WebsiteDescription`:
 - `WebsiteIcon`:
 - `WebsiteTwitter`:
+- `WebsiteLang`: (Default: `"en"`)
+- `WebsiteLangDir`: (Default: `"ltr"`)
 - `AuthorName`:
 - `AuthorEmail`:
 - `AuthorTwitter`:
 - `AuthorLinkedIn`:
 - `AuthorFacebook`:
 - `AuthorInstagram`:
-
-### Advanced Configuration Tags
-- `WebsiteLang`: (Default: `"en"`)
-- `WebsiteLangDir`: (Default: `"ltr"`)
 
 ### Post Configuration Tags
 - `PostTitle`:
@@ -36,3 +34,5 @@
 
 ### Miscellaneous Tags
 - `CurrentYear`:
+- `CurrentMonth`:
+- `CurrentDay`:

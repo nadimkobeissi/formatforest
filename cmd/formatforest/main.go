@@ -15,11 +15,8 @@ var version = "0.0.0"
 
 func main() {
 	switch len(os.Args) {
-	case 3:
-		mainEntry(os.Args)
 	case 2:
-		mainIntro()
-		formatforest.Help()
+		mainEntry(os.Args)
 	default:
 		mainIntro()
 		formatforest.Help()
@@ -39,6 +36,8 @@ func mainEntry(args []string) {
 		mainIntro()
 		formatforest.Format()
 	case "publish":
+		mainIntro()
+	case "clean":
 		mainIntro()
 	default:
 		mainIntro()

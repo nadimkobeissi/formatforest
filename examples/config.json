@@ -1,15 +1,15 @@
 {
 	"WebsiteName": "Format Forest",
 	"WebsiteUri": "https://formatforest.com",
-	"WebsiteDescription": "Format Forest is neat!",
-	"WebsiteIcon": "icon.png",
-	"WebsiteTwitter": "@formatforest",
+	"WebsiteDescription": "Format Forest is a simple and elegant blogging engine written in Go.",
+	"WebsiteIcon": "formatforest.png",
+	"WebsiteTwitter": "formatforest",
+	"WebsiteLang": "en",
+	"WebsiteLangDir": "ltr",
 	"AuthorName": "Nadim Kobeissi",
 	"AuthorEmail": "nadim@nadim.computer",
-	"AuthorTwitter": "@kaepora",
+	"AuthorTwitter": "kaepora",
 	"AuthorLinkedIn": "nadimkobeissi",
 	"AuthorFacebook": "",
-	"AuthorInstagram": "",
-	"WebsiteLang": "en",
-	"WebsiteLangDir": "ltr"
+	"AuthorInstagram": ""
 }

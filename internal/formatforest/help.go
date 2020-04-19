@@ -14,6 +14,7 @@ func Help() {
 	fmt.Fprintf(os.Stdout, strings.Join([]string{
 		"format:  TBD.",
 		"publish: TBD.",
+		"clean:   TBD.",
 		"help:    Show this help text.",
 	}, "\n"))
 }

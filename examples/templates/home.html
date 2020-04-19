@@ -5,21 +5,21 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height, target-densitydpi=device-dpi">
 	<meta property="article:publisher" content="{{FF:WebsiteUri:FF}}" />
-	<meta property="og:site_name" content="{{FF:WebsiteTitle:FF}}" />
+	<meta property="og:site_name" content="{{FF:WebsiteName:FF}}" />
 	<meta property="og:type" content="website" />
 	<meta name="author" content="{{FF:AuthorName:FF}}">
-	<meta name="twitter:site" content="{{FF:WebsiteTwitter:FF}}" />
-	<meta name="twitter:creator" content="{{FF:AuthorTwitter:FF}}" />
+	<meta name="twitter:site" content="@{{FF:WebsiteTwitter:FF}}" />
+	<meta name="twitter:creator" content="@{{FF:AuthorTwitter:FF}}" />
 	<meta name="twitter:card" content="summary" />
-	<meta property="og:title" content="{{FF:WebsiteTitle:FF}}" />
-	<meta name="twitter:text:title" content="{{FF:WebsiteTitle:FF}}" />
+	<meta property="og:title" content="{{FF:WebsiteName:FF}}" />
+	<meta name="twitter:text:title" content="{{FF:WebsiteName:FF}}" />
 	<meta name="description" content="{{FF:WebsiteDescription:FF}}">
 	<meta property="og:description" content="{{FF:WebsiteDescription:FF}}" />
 	<meta property="og:image" content="{{FF:WebsiteUri:FF}}/res/img/{{FF:WebsiteIcon:FF}}" />
 	<meta name="twitter:image" content="{{FF:WebsiteUri:FF}}/res/img/{{FF:WebsiteIcon:FF}}" />
 	<meta property="og:url" content="{{FF:WebsiteUri:FF}}" />
-	<link rel="alternate" type="application/rss+xml" title="{{FF:WebsiteTitle:FF}}" href="{{FF:WebsiteUri:FF}}/rss.xml" />
-	<link rel="stylesheet" href="/res/css/main.css">
+	<link rel="alternate" type="application/rss+xml" title="{{FF:WebsiteName:FF}}" href="{{FF:WebsiteUri:FF}}/rss.xml" />
+	<link rel="stylesheet" href="/res/css/style.css">
 	<link rel="icon" type="image/png" href="/res/img/{{FF:WebsiteIcon:FF}}" />
 	<title>{{FF:WebsiteName:FF}}: Home</title>
 </head>
@@ -28,27 +28,27 @@
 	<div class="content">
 		<div class="section">
 			<img class="websiteIcon" src="/res/img/{{FF:WebsiteIcon:FF}}" alt="" />
-			<h1 class="title">{{FF:WebsiteTitle:FF}}</h1>
-			<p>
+			<h1 class="websiteName">{{FF:WebsiteName:FF}}</h1>
+			<p class="websiteDescription">
 				{{FF:WebsiteDescription:FF}}
 			</p>
 		</div>
 		<div class="section">
 			<h2>Posts</h2>
-			{{FF:PostsList:FF}}
+			{{FF:PostList:FF}}
 		</div>
 		<div class="footer">
 			<img class="formatforest" src="/res/img/formatforest.png" alt="Powered by Format Forest" title="Powered by Format Forest" />
 			<p>
 				Contact information:
-				{{FF:AuthorEmail:FF}} &bull;
-				{{FF:AuthorTwitter:FF}} &bull;
-				{{FF:AuthorLinkedIn:FF}} &bull;
-				{{FF:AuthorFacebook:FF}} &bull;
-				{{FF:AuthorInstagram:FF}}
+				<a href="mailto:{{FF:AuthorEmail:FF}}">Email</a> &bull;
+				<a href="https://twitter.com/{{FF:AuthorTwitter:FF}}">Twitter</a> &bull;
+				<a href="https://linkedin.com/in/{{FF:AuthorLinkedIn:FF}}">LinkedIn</a> &bull;
+				<a href="https://facebook.com/{{FF:AuthorFacebook:FF}}">Facebook</a> &bull;
+				<a href="https://instagram.com/{{FF:AuthorInstagram:FF}}">Instagram</a>
 			</p>
 			<p>
-				&copy; <span id="footerYear">{{FF:CurrentYear:FF}}</span> {{FF:AuthorName:FF}}. All Rights Reserved.
+				&copy; <span id="footerYear">{{FF:CurrentYear:FF}}</span> {{FF:AuthorName:FF}}. All Rights Reserved. Last updated on {{FF:CurrentYear:FF}}/{{FF:CurrentMonth:FF}}/{{FF:CurrentDay:FF}}.
 			</p>
 		</div>
 	</div>

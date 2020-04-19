@@ -9,6 +9,8 @@ import (
 	"os"
 	"path"
 	"strings"
+
+	"github.com/otiai10/copy"
 )
 
 func writeFolders() {
@@ -19,7 +21,7 @@ func writeFolders() {
 			errorExit(err)
 		}
 	}
-	postsFolderInfo, err := os.Stat("posts")
+	postsFolderInfo, err := os.Stat(path.Join("public", "posts"))
 	if err != nil || !postsFolderInfo.IsDir() {
 		err = os.Mkdir(path.Join("public", "posts"), 0755)
 		if err != nil {
@@ -28,18 +30,19 @@ func writeFolders() {
 	}
 }
 
-func writeHome(posts []post) {
+func writeHome(posts []post, config config) {
 	homeHtmlBytes, err := ioutil.ReadFile(
-		"templates/home.html",
+		path.Join("templates", "home.html"),
 	)
 	if err != nil {
 		errorExit(err)
 	}
-	homeHtml := strings.ReplaceAll(
-		string(homeHtmlBytes), "{{FF:PostList:FF}}", formatPostList(posts),
+	homeHtml := formatStandard(string(homeHtmlBytes), config)
+	homeHtml = strings.ReplaceAll(
+		homeHtml, "{{FF:PostList:FF}}", formatPostList(posts),
 	)
 	err = ioutil.WriteFile(
-		"public/index.html",
+		path.Join("public", "index.html"),
 		[]byte(homeHtml), 0755,
 	)
 	if err != nil {
@@ -47,26 +50,27 @@ func writeHome(posts []post) {
 	}
 }
 
-func writePosts(posts []post) {
+func writePosts(posts []post, config config) {
 	postHtmlBytes, err := ioutil.ReadFile(
-		"templates/post.html",
+		path.Join("templates", "post.html"),
 	)
 	if err != nil {
 		errorExit(err)
 	}
 	for _, post := range posts {
-		postHtml := formatPost(string(postHtmlBytes), post)
-		err = ioutil.WriteFile(fmt.Sprintf(
-			"public/posts/%s-%s.html",
-			post.date, post.tag,
-		), []byte(postHtml), 0755)
+		postHtml := formatPost(string(postHtmlBytes), post, config)
+		err = ioutil.WriteFile(
+			path.Join("public", "posts",
+				fmt.Sprintf("%s-%s.html",
+					post.date, post.tag,
+				)), []byte(postHtml), 0755)
 		if err != nil {
 			errorExit(err)
 		}
 	}
 }
 
-func writeRss(posts []post) {
+func writeRss(posts []post, config config) {
 	postsRssXmlBytes, err := ioutil.ReadFile(
 		"templates/rss.xml",
 	)
@@ -74,12 +78,20 @@ func writeRss(posts []post) {
 		errorExit(err)
 	}
 	postsRssXml := strings.ReplaceAll(
-		string(postsRssXmlBytes), "{{FF:PostRss:FF}}", formatRss(posts),
+		string(postsRssXmlBytes),
+		"{{FF:PostRss:FF}}", formatRss(posts, config),
 	)
 	err = ioutil.WriteFile(
-		"public/rss.xml",
+		path.Join("public", "rss.xml"),
 		[]byte(postsRssXml), 0755,
 	)
+	if err != nil {
+		errorExit(err)
+	}
+}
+
+func writeRes() {
+	err := copy.Copy("res", path.Join("public", "res"))
 	if err != nil {
 		errorExit(err)
 	}

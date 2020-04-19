@@ -8,38 +8,47 @@ all:
 	@make -s freebsd
 
 windows:
-	@/bin/echo -n "[FF] Building Format Forest for Windows..."
+	@/bin/echo -n "[Format Forest] Building Format Forest for Windows..."
+	@make -s dep
 	@GOOS="windows" go generate ./...
 	@GOOS="windows" go build -gcflags="-e" -ldflags="-s -w" -o build/windows formatforest.com/...
 	@/bin/echo " OK"
 
 linux:
-	@/bin/echo -n "[FF] Building Format Forest for Linux..."
+	@/bin/echo -n "[Format Forest] Building Format Forest for Linux..."
+	@make -s dep
 	@GOOS="linux" go build -gcflags="-e" -ldflags="-s -w" -o build/linux formatforest.com/...
 	@/bin/echo "   OK"
 
 macos:
-	@/bin/echo -n "[FF] Building Format Forest for macOS..."
+	@/bin/echo -n "[Format Forest] Building Format Forest for macOS..."
+	@make -s dep
 	@GOOS="darwin" go build -gcflags="-e" -ldflags="-s -w" -o build/macos formatforest.com/...
 	@/bin/echo "   OK"
 
 freebsd:
-	@/bin/echo -n "[FF] Building Format Forest for FreeBSD..."
+	@/bin/echo -n "[Format Forest] Building Format Forest for FreeBSD..."
+	@make -s dep
 	@GOOS="freebsd" go build -gcflags="-e" -ldflags="-s -w" -o build/freebsd formatforest.com/...
 	@/bin/echo " OK"
 
+dep:
+	go get -u ./...
+
 lint:
-	@/bin/echo "[FF] Running golangci-lint..."
+	@/bin/echo "[Format Forest] Running golangci-lint..."
 	@golangci-lint run
 
 clean:
-	@/bin/echo -n "[FF] Cleaning up..."
+	@/bin/echo -n "[Format Forest] Cleaning up..."
 	@$(RM) -f cmd/formatforest/resource.syso
 	@$(RM) build/windows/formatforest.exe
 	@$(RM) build/linux/formatforest
 	@$(RM) build/macos/formatforest
 	@$(RM) build/freebsd/formatforest
 	@$(RM) -rf dist
+	@$(RM) -f examples/formatforest
+	@$(RM) -f formatforest
 	@/bin/echo "                   OK"
 
-.PHONY: all windows linux macos freebsd lint clean build cmd docs examples internal
+.PHONY: dep all windows linux macos freebsd lint clean build cmd docs examples internal

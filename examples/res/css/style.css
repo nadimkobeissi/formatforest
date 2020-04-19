@@ -128,6 +128,23 @@ div.content div.section img.figurewide {
 	border-radius: 5px;
 }
 
+div.content div.section img.websiteIcon {
+	width: 128px;
+	height: auto;
+	float: left;
+	margin-right: 20px;
+}
+
+div.content div.section h1.websiteName {
+	position: relative;
+	top: 10px;
+}
+
+div.content div.section p.websiteDescription {
+	margin-top: 30px;
+	min-height: 130px;
+}
+
 div.content div.section img.figuresmall {
 	max-width: 40%;
 	max-height: 200px;
@@ -152,7 +169,7 @@ div.content div.footer {
 	padding-bottom: 10px;
 }
 
-div.content div.footer img.opensuse {
+div.content div.footer img.formatforest {
 	width: auto;
 	height: 64px;
 	float: left;
