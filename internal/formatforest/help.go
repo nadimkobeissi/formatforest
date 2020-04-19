@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-// Help displays Format Forest command-line usage instructions.
+// Help displays FormatForest command-line usage instructions.
 func Help() {
 	fmt.Fprintf(os.Stdout, strings.Join([]string{
 		"format:  TBD.",
