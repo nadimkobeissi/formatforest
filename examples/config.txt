@@ -11,7 +11,7 @@
 	"AuthorTwitter": "kaepora",
 	"AuthorLinkedIn": "nadimkobeissi",
 	"AuthorFacebook": "",
-	"AuthorInstagram": ""
+	"AuthorInstagram": "",
 	"SyncUser": "nadim",
 	"SyncHost": "formatforest.com",
 	"SyncPath": "/usr/share/nginx/formatforest.com"
