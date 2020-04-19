@@ -25,7 +25,7 @@ func main() {
 
 func mainIntro() {
 	fmt.Fprintf(os.Stdout,
-		aurora.Bold("FormatForest %s - %s\n").String(),
+		aurora.Bold("FormatForest %s - %s\n\n").String(),
 		version, "https://formatforest.com",
 	)
 }

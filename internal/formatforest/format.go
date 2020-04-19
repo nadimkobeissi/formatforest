@@ -10,12 +10,20 @@ import (
 )
 
 func Format() {
+	fmt.Println("[FormatForest] Formatting...")
+	fmt.Println("[FormatForest] Parsing config.json...")
 	config := parseConfig()
+	fmt.Println("[FormatForest] Parsing posts...")
 	posts := postReadAll()
+	fmt.Println("[FormatForest] Writing folders...")
 	writeFolders()
+	fmt.Println("[FormatForest] Writing home...")
 	writeHome(posts, config)
+	fmt.Println("[FormatForest] Writing posts...")
 	writePosts(posts, config)
+	fmt.Println("[FormatForest] Writing RSS...")
 	writeRss(posts, config)
+	fmt.Println("[FormatForest] Writing resources...")
 	writeRes()
 }
 
@@ -126,7 +134,7 @@ func formatRss(posts []post, config config) string {
 			"<item>",
 			"<title>{{FF:PostTitle:FF}}</title>",
 			"<link>https://nadim.computer/posts/{{FF:PostDate:FF}}-{{FF:PostTag:FF}}.html</link>",
-			"<dc:creator><![CDATA[Nadim Kobeissi]]></dc:creator>",
+			"<dc:creator><![CDATA[{{FF:WebsiteAuthor:FF}}]]></dc:creator>",
 			"<pubDate>{{FF:PostRssDate:FF}}</pubDate>",
 			"<description><![CDATA[{{FF:PostDescription:FF}}]]></description>",
 			"<content:encoded><![CDATA[{{FF:PostContent:FF}}]]></content:encoded>",

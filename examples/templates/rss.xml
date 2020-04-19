@@ -10,18 +10,18 @@
 	xmlns:media="http://search.yahoo.com/mrss/">
 
 	<channel>
-		<title>Nadim Kobeissi</title>
+		<title>{{FF:WebsiteName:FF}}</title>
 		<atom:link href="https://nadim.computer/posts/rss.xml" rel="self" type="application/rss+xml" />
-		<link>https://nadim.computer</link>
-		<description>Nadim Kobeissi's blog posts.</description>
+		<link>{{FF:WebsiteUri:FF}}</link>
+		<description>{{FF:WebsiteDescription:FF}}</description>
 		<language>en</language>
 		<sy:updatePeriod>daily</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
-		<generator>https://nadim.computer</generator>
+		<generator>{{FF:WebsiteUri:FF}}</generator>
 		<image>
-			<url>https://nadim.computer/res/img/myIcon.png</url>
-			<title>Nadim Kobeissi</title>
-			<link>https://nadim.computer</link>
+			<url>{{FF:WebsiteUri:FF}}/res/img/{{FF:WebsiteIcon:FF}}</url>
+			<title>{{FF:WebsiteName:FF}}</title>
+			<link>{{FF:WebsiteUri:FF}}</link>
 			<width>32</width>
 			<height>32</height>
 		</image>
