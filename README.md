@@ -12,9 +12,9 @@ Format Forest is a simple and elegant blogging engine written in Go.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum suscipit eleifend. Pellentesque ut lorem non arcu venenatis rutrum. Mauris sit amet bibendum velit. Mauris sapien sem, molestie ac quam sed, lobortis porttitor augue. Curabitur tincidunt ipsum eget orci malesuada dignissim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean hendrerit accumsan dui, eget pulvinar sem fermentum eget.
 
-## Getting Started
 Sed varius nibh sed facilisis varius. Maecenas nec neque congue, finibus leo a, auctor tortor. Mauris sodales ornare cursus. Fusce non diam id felis dignissim pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur et dapibus augue. Nullam sagittis leo nisi, sit amet hendrerit nibh iaculis nec. Donec dapibus vehicula diam pellentesque tempus. Aliquam ut efficitur nisl, elementum cursus eros.
 
+## Getting Started
 Pellentesque vel ante tincidunt, eleifend felis ut, cursus purus. Cras rutrum tempor ligula, ac iaculis nisl faucibus at. Nullam vehicula tincidunt dignissim. In tempor ligula elit, at rutrum dui tempus ut. Suspendisse egestas augue lobortis sapien pharetra, vel aliquet nisl semper. Suspendisse mi tortor, eleifend in auctor eget, pulvinar ac mi. Proin fringilla posuere ipsum. Praesent iaculis eget nulla non accumsan. Aliquam lacus magna, volutpat sit amet neque sit amet, scelerisque cursus erat. Phasellus vulputate libero id luctus efficitur. Donec fringilla, leo vitae ultrices ullamcorper, sem eros dignissim metus, et posuere urna eros nec turpis.
 
 ## Discussion
