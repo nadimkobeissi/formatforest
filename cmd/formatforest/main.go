@@ -44,8 +44,8 @@ func mainEntry(args []string) {
 		formatforest.Format()
 	case "sync":
 		mainIntro()
-		if len(args) != 5 {
-			formatforest.ErrorExit(errors.New("sync requires three arguments"))
+		if len(args) != 2 {
+			formatforest.ErrorExit(errors.New("sync requires zero arguments"))
 		}
 		formatforest.Sync()
 	default:
