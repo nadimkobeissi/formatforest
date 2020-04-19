@@ -1,7 +1,7 @@
 {
 	"WebsiteName": "FormatForest",
 	"WebsiteUri": "https://formatforest.com",
-	"WebsiteDescription": "FormatForest is a simple and elegant blogging engine written in Go.",
+	"WebsiteDescription": "FormatForest is a simple and elegant blogging engine written in Go. The FormatForest website is itself made using FormatForest. How incredible!",
 	"WebsiteIcon": "formatforest.png",
 	"WebsiteTwitter": "forestformat",
 	"WebsiteLang": "en",
