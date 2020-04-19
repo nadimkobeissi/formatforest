@@ -47,6 +47,9 @@ Simply open `config.txt` using a text editor and modify the values. They are sel
 - `AuthorLinkedIn`: Your LinkedIn handle, otherwise leave empty.
 - `AuthorFacebook`: Your Facebook handle, otherwise leave empty.
 - `AuthorInstagram`: Your Instagram handle, otherwise leave empty.
+- `SyncUser`: SSH username for FormatForest's sync feature.
+- `SyncHost`: Remote host for FormatForest's sync feature.
+- `SyncPath`: Remote directory path for FormatForest's sync feature.
 
 ### Step 3: Write Your First Blog Post
 Blog posts are stored in the `posts` folder and **must imperatively** have a filename with the following format:
@@ -80,7 +83,7 @@ In order to generate the static HTML for your blog, return to your `myBlog` fold
 You may then either:
 
 - Serve the `public` folder locally from your computer as you see fit, or manually upload it somewhere, or,
-- Type `formatforest sync [user] [host] [remotePath]` in order to automatically synchronize your `public` folder via rsync and SSH to a remote server. rsync must be installed locally for this to work.
+- Type `formatforest sync` in order to automatically synchronize your `public` folder via rsync and SSH to a remote server. rsync must be installed locally for this to work and correct values for `SyncUser`, `SyncHost` and `SyncPath` must be specified in `config.txt`.
 
 Easy!
 

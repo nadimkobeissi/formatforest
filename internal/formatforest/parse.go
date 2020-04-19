@@ -24,6 +24,9 @@ type config struct {
 	AuthorLinkedIn     string
 	AuthorFacebook     string
 	AuthorInstagram    string
+	SyncUser           string
+	SyncHost           string
+	SyncPath           string
 }
 
 func parseConfig() config {

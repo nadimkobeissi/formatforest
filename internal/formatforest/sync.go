@@ -8,16 +8,16 @@ import (
 	"os/exec"
 )
 
-func Sync(user string, host string, targetDir string) {
+func Sync(config config) {
 	fmt.Println("[FormatForest] In order for sync to succeed,")
 	fmt.Println("               rsync must be installed.")
 	fmt.Println("")
-	syncExec(user, host, targetDir)
+	syncExec(config config)
 }
 
-func syncExec(user string, host string, targetDir string) {
+func syncExec(config config) {
 	fmt.Printf("[FormatForest] Syncing...")
-	arg := fmt.Sprintf("%s@%s:%s", user, host, targetDir)
+	arg := fmt.Sprintf("%s@%s:%s", config.SyncUser, config.SyncHost, config.SyncPath)
 	rsync := exec.Command("rsync", "-av", "--delete", ".", arg)
 	rsync.Dir = "public"
 	err := rsync.Run()

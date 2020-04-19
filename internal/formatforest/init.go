@@ -62,6 +62,9 @@ func Init(blogFolder string) {
 		AuthorLinkedIn:     "yourlinkedinid",
 		AuthorFacebook:     "yourfacebookid",
 		AuthorInstagram:    "yourinstagramid",
+		SyncUser:           "user",
+		SyncHost:           "myblog.com",
+		SyncPath:           "/var/www/myblog.com",
 	}
 	configJsonBytes, err := json.MarshalIndent(configJson, "", "\t")
 	if err != nil {
