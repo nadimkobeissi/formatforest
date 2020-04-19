@@ -8,11 +8,12 @@ import (
 	"os/exec"
 )
 
-func Sync(config config) {
+func Sync() {
 	fmt.Println("[FormatForest] In order for sync to succeed,")
 	fmt.Println("               rsync must be installed.")
 	fmt.Println("")
-	syncExec(config config)
+	configJson := parseConfig()
+	syncExec(configJson)
 }
 
 func syncExec(config config) {
