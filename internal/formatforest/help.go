@@ -12,7 +12,7 @@ import (
 // Help displays FormatForest command-line usage instructions.
 func Help() {
 	fmt.Fprintf(os.Stdout, strings.Join([]string{
-		"format:  Generate public static directory.",
+		"format:  Generate public static folder.",
 		"sync:    Sync with remote server via rsync. ",
 		"help:    Show this help text.",
 	}, "\n"))

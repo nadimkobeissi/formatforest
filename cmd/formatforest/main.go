@@ -30,6 +30,12 @@ func mainIntro() {
 
 func mainEntry(args []string) {
 	switch args[1] {
+	case "init":
+		mainIntro()
+		if len(args) != 3 {
+			formatforest.ErrorExit(errors.New("init requires one argument"))
+		}
+		formatforest.WriteInit(args[2])
 	case "format":
 		mainIntro()
 		if len(args) != 2 {

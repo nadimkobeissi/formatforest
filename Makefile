@@ -51,4 +51,4 @@ clean:
 	@$(RM) -f formatforest
 	@/bin/echo "                   OK"
 
-.PHONY: dep all windows linux macos freebsd lint clean build cmd docs examples internal
+.PHONY: dep all windows linux macos freebsd lint clean build cmd examples internal

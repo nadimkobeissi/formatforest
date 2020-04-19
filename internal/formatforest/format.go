@@ -133,7 +133,7 @@ func formatRss(posts []post, config config) string {
 		postRssXml := strings.Join([]string{
 			"<item>",
 			"<title>{{FF:PostTitle:FF}}</title>",
-			"<link>https://nadim.computer/posts/{{FF:PostDate:FF}}-{{FF:PostTag:FF}}.html</link>",
+			"<link>{{FF:WebsiteUri:FF}}/posts/{{FF:PostDate:FF}}-{{FF:PostTag:FF}}.html</link>",
 			"<dc:creator><![CDATA[{{FF:WebsiteAuthor:FF}}]]></dc:creator>",
 			"<pubDate>{{FF:PostRssDate:FF}}</pubDate>",
 			"<description><![CDATA[{{FF:PostDescription:FF}}]]></description>",
