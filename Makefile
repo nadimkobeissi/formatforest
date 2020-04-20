@@ -43,6 +43,11 @@ release:
 	@make -s dep
 	@curl -sL https://git.io/goreleaser | bash
 
+tag:
+	@make -s dep
+	@make -s clean
+	@bash scripts/tag.sh
+
 clean:
 	@/bin/echo -n "[FormatForest] Cleaning up..."
 	@$(RM) -f cmd/formatforest/resource.syso
