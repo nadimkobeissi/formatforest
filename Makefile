@@ -41,6 +41,7 @@ lint:
 
 release:
 	@make -s dep
+	@git checkout -- .
 	@curl -sL https://git.io/goreleaser | bash
 
 tag:
