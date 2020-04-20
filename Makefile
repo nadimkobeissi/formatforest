@@ -39,6 +39,10 @@ lint:
 	@/bin/echo "[FormatForest] Running golangci-lint..."
 	@golangci-lint run
 
+release:
+	@make -s dep
+	@curl -sL https://git.io/goreleaser | bash
+
 clean:
 	@/bin/echo -n "[FormatForest] Cleaning up..."
 	@$(RM) -f cmd/formatforest/resource.syso
@@ -51,4 +55,4 @@ clean:
 	@$(RM) -f formatforest
 	@/bin/echo "                   OK"
 
-.PHONY: dep all windows linux macos freebsd lint clean build cmd examples internal
+.PHONY: dep all windows linux macos freebsd lint release clean build cmd examples internal scripts

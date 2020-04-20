@@ -1,8 +1,19 @@
 stages:
   - lint
+  - release
 
 lint:
   image: golangci/golangci-lint:latest
   stage: lint
   script:
     - golangci-lint run
+
+release:
+  image: golang:latest
+  stage: release
+  only:
+    - tags
+  variables:
+    GIT_DEPTH: 0
+  script:
+    - make release

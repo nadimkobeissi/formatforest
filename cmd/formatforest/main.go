@@ -11,19 +11,19 @@ import (
 	"formatforest.com/internal/formatforest"
 )
 
-var version = "0.0.0"
+var version = "0.0.1"
 
 func main() {
+	mainIntro()
 	if len(os.Args) >= 2 {
 		mainEntry(os.Args)
 	} else {
-		mainIntro()
 		formatforest.Help()
 	}
 }
 
 func mainIntro() {
-	fmt.Fprintf(os.Stdout, "FormatForest %s - %s\n\n",
+	fmt.Fprintf(os.Stdout, "FormatForest %s - %s\n",
 		version, "https://formatforest.com",
 	)
 }
@@ -52,7 +52,6 @@ func mainEntry(args []string) {
 		}
 		formatforest.Sync()
 	default:
-		mainIntro()
 		formatforest.Help()
 	}
 }
