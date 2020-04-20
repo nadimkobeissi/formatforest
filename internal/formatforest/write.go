@@ -17,16 +17,12 @@ func writeFolders() {
 	publicFolderInfo, err := os.Stat("public")
 	if err != nil || !publicFolderInfo.IsDir() {
 		err = os.Mkdir("public", 0755)
-		if err != nil {
-			ErrorExit(err)
-		}
+		ErrorCheckExit(err)
 	}
 	postsFolderInfo, err := os.Stat(path.Join("public", "posts"))
 	if err != nil || !postsFolderInfo.IsDir() {
 		err = os.Mkdir(path.Join("public", "posts"), 0755)
-		if err != nil {
-			ErrorExit(err)
-		}
+		ErrorCheckExit(err)
 	}
 }
 
@@ -34,9 +30,7 @@ func writeHome(posts []post, config config) {
 	homeHtmlBytes, err := ioutil.ReadFile(
 		path.Join("templates", "home.html"),
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	homeHtml := formatStandard(string(homeHtmlBytes), config)
 	homeHtml = strings.ReplaceAll(
 		homeHtml, "{{FF:PostList:FF}}", formatPostList(posts),
@@ -45,18 +39,14 @@ func writeHome(posts []post, config config) {
 		path.Join("public", "index.html"),
 		[]byte(homeHtml), 0755,
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 }
 
 func writePosts(posts []post, config config) {
 	postHtmlBytes, err := ioutil.ReadFile(
 		path.Join("templates", "post.html"),
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	for _, post := range posts {
 		postHtml := formatPost(string(postHtmlBytes), post, config)
 		err = ioutil.WriteFile(
@@ -64,9 +54,7 @@ func writePosts(posts []post, config config) {
 				fmt.Sprintf("%s-%s.html",
 					post.date, post.tag,
 				)), []byte(postHtml), 0755)
-		if err != nil {
-			ErrorExit(err)
-		}
+		ErrorCheckExit(err)
 	}
 }
 
@@ -74,9 +62,7 @@ func writeRss(posts []post, config config) {
 	postsRssXmlBytes, err := ioutil.ReadFile(
 		"templates/rss.xml",
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	postsRssXml := strings.ReplaceAll(
 		string(postsRssXmlBytes),
 		"{{FF:PostRss:FF}}", formatRss(posts, config),
@@ -85,14 +71,10 @@ func writeRss(posts []post, config config) {
 		path.Join("public", "rss.xml"),
 		[]byte(postsRssXml), 0755,
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 }
 
 func writeRes() {
 	err := copy.Copy("res", path.Join("public", "res"))
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 }

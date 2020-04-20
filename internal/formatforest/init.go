@@ -21,33 +21,19 @@ func Init(blogFolder string) {
 		ErrorExit(errors.New("folder already exists"))
 	}
 	err = os.Mkdir(blogFolder, 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = os.Mkdir(path.Join(blogFolder, "posts"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = os.Mkdir(path.Join(blogFolder, "public"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = os.Mkdir(path.Join(blogFolder, "templates"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = os.Mkdir(path.Join(blogFolder, "res"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = os.Mkdir(path.Join(blogFolder, "res", "img"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = os.Mkdir(path.Join(blogFolder, "res", "css"), 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	configJson := config{
 		WebsiteName:        "My FormatForest Blog",
 		WebsiteUri:         "https://myblog.com",
@@ -67,62 +53,44 @@ func Init(blogFolder string) {
 		SyncPath:           "/var/www/myblog.com",
 	}
 	configJsonBytes, err := json.MarshalIndent(configJson, "", "\t")
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = ioutil.WriteFile(path.Join(blogFolder, "config.txt"), configJsonBytes, 0755)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = initDownload(
 		path.Join(blogFolder, "res", "img", "formatforest.png"),
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/res/img/formatforest.png",
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = initDownload(
 		path.Join(blogFolder, "res", "img", "hello.png"),
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/res/img/hello.png",
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = initDownload(
 		path.Join(blogFolder, "res", "css", "style.css"),
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/res/css/style.css",
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = initDownload(
 		path.Join(blogFolder, "templates", "home.html"),
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/templates/home.html",
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = initDownload(
 		path.Join(blogFolder, "templates", "post.html"),
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/templates/post.html",
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = initDownload(
 		path.Join(blogFolder, "templates", "rss.xml"),
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/templates/rss.xml",
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	err = initDownload(
 		path.Join(blogFolder, "posts", "2020-04-19-hello.md"),
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/posts/2020-04-19-hello.md",
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 }
 
 func initDownload(filepath string, url string) error {

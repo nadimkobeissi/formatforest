@@ -11,3 +11,9 @@ import (
 func ErrorExit(err error) {
 	log.Fatal(fmt.Errorf("[FormatForest] Error: %v.\n", err))
 }
+
+func ErrorCheckExit(err error) {
+	if err != nil {
+		ErrorExit(err)
+	}
+}

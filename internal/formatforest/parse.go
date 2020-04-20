@@ -32,14 +32,10 @@ type config struct {
 func parseConfig() config {
 	configJson := config{}
 	configBytes, err := ioutil.ReadFile("config.txt")
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	configText := string(configBytes)
 	err = json.Unmarshal([]byte(configText), &configJson)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	if len(configJson.WebsiteName) == 0 {
 		ErrorExit(errors.New("invalid WebsiteName in config.txt"))
 	}
@@ -65,9 +61,7 @@ func parsePost(postMd string) (postConfig, string) {
 	var postconfig postConfig
 	postConfigText := strings.Join(strings.Split(postMd, "\n")[0:5], "\n")
 	err := json.Unmarshal([]byte(postConfigText), &postconfig)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	postMdContent := strings.Join(strings.Split(postMd, "\n")[5:], "\n")
 	return postconfig, postMdContent
 }

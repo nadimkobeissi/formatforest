@@ -85,11 +85,11 @@ linters-settings:
             - wrapperFunc
             - yodaStyleExpr
     goconst:
-        min-len: 12
+        min-len: 10
     funlen:
         statements: 64
-        lines: 128
+        lines: 80
     gocyclo:
-        min-complexity: 18
+        min-complexity: 15
     govet:
         enable-all: true

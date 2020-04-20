@@ -31,9 +31,7 @@ func postRead(file os.FileInfo) post {
 	fileBytes, err := ioutil.ReadFile(
 		path.Join("posts", file.Name()),
 	)
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	postMd := string(fileBytes)
 	if len(postMd) == 0 {
 		ErrorExit(fmt.Errorf("could not read post at %s", file.Name()))
@@ -62,9 +60,7 @@ func postRead(file os.FileInfo) post {
 func postReadAll() []post {
 	posts := []post{}
 	dirInfo, err := ioutil.ReadDir("posts")
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 	for _, file := range dirInfo {
 		posts = append([]post{
 			postRead(file),

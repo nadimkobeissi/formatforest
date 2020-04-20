@@ -33,19 +33,25 @@ func mainEntry(args []string) {
 	case "init":
 		mainIntro()
 		if len(args) != 3 {
-			formatforest.ErrorExit(errors.New("init requires one argument"))
+			formatforest.ErrorExit(
+				errors.New("init requires one argument"),
+			)
 		}
 		formatforest.Init(args[2])
 	case "format":
 		mainIntro()
 		if len(args) != 2 {
-			formatforest.ErrorExit(errors.New("format requires zero arguments"))
+			formatforest.ErrorExit(
+				errors.New("format requires zero arguments"),
+			)
 		}
 		formatforest.Format()
 	case "sync":
 		mainIntro()
 		if len(args) != 2 {
-			formatforest.ErrorExit(errors.New("sync requires zero arguments"))
+			formatforest.ErrorExit(
+				errors.New("sync requires zero arguments"),
+			)
 		}
 		formatforest.Sync()
 	default:

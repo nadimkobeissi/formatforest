@@ -22,7 +22,5 @@ func syncExec(config config) {
 	rsync := exec.Command("rsync", "-av", "--delete", ".", arg)
 	rsync.Dir = "public"
 	err := rsync.Run()
-	if err != nil {
-		ErrorExit(err)
-	}
+	ErrorCheckExit(err)
 }
