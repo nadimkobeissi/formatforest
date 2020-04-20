@@ -40,7 +40,7 @@ func downloadInitAssets(blogFolder string) {
 	ErrorCheckExit(err)
 	err = download(
 		path.Join(blogFolder, "res", "css", "style.css"),
-		fmt.Sprintf("%s%s", dlPath, "res/css/stylet.css"),
+		fmt.Sprintf("%s%s", dlPath, "res/css/style.css"),
 	)
 	ErrorCheckExit(err)
 	err = download(
