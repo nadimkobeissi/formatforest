@@ -9,7 +9,9 @@ import (
 )
 
 func Sync() {
+	fmt.Printf("[FormatForest] Parsing config.txt...")
 	configJson := parseConfig()
+	fmt.Println(" OK")
 	syncExec(configJson)
 }
 

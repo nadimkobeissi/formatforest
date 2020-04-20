@@ -13,7 +13,26 @@ import (
 	"github.com/otiai10/copy"
 )
 
-func writeFolders() {
+func writeInitFolders(blogFolder string) {
+	err := os.Mkdir(blogFolder, 0755)
+	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "posts"), 0755)
+	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "public"), 0755)
+	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "templates"), 0755)
+	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "res"), 0755)
+	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "res", "img"), 0755)
+	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "res", "css"), 0755)
+	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "res", "js"), 0755)
+	ErrorCheckExit(err)
+}
+
+func writePublicFolders() {
 	publicFolderInfo, err := os.Stat("public")
 	if err != nil || !publicFolderInfo.IsDir() {
 		err = os.Mkdir("public", 0755)
