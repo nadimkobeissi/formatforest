@@ -30,6 +30,10 @@ func writeInitFolders(blogFolder string) {
 	ErrorCheckExit(err)
 	err = os.Mkdir(path.Join(blogFolder, "res", "js"), 0755)
 	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "res", "pdf"), 0755)
+	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "res", "zip"), 0755)
+	ErrorCheckExit(err)
 }
 
 func writePublicFolders() {
