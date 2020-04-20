@@ -14,7 +14,7 @@ fi
 
 git commit -am "FormatForest ${VERSION}" &> /dev/null
 git push &> /dev/null
-git tag -a "v${VERSION}" -m "FormatForest ${VERSION}" -m "${RELEASE_NOTES}" &> /dev/null
+git tag -a "v${VERSION}" -m "FormatForest ${VERSION}" &> /dev/null
 git push origin "v${VERSION}" &> /dev/null
 
 echo "[FormatForest] FormatForest ${VERSION} tagged."
