@@ -1,5 +1,6 @@
 run:
     skip-files:
+        - main_test.go
 
 linters:
     enable:
