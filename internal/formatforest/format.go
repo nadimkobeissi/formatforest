@@ -18,6 +18,7 @@ func Format() {
 	writePosts(posts, config)
 	writeRss(posts, config)
 	writeRes()
+	fmt.Println(" OK")
 }
 
 func formatStandard(html string, config config) string {

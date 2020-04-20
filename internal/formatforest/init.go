@@ -34,6 +34,8 @@ func Init(blogFolder string) {
 	ErrorCheckExit(err)
 	err = os.Mkdir(path.Join(blogFolder, "res", "css"), 0755)
 	ErrorCheckExit(err)
+	err = os.Mkdir(path.Join(blogFolder, "res", "js"), 0755)
+	ErrorCheckExit(err)
 	configJson := config{
 		WebsiteName:        "My FormatForest Blog",
 		WebsiteUri:         "https://myblog.com",
@@ -72,6 +74,16 @@ func Init(blogFolder string) {
 	)
 	ErrorCheckExit(err)
 	err = initDownload(
+		path.Join(blogFolder, "res", "css", "highlight.css"),
+		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/res/css/highlight.css",
+	)
+	ErrorCheckExit(err)
+	err = initDownload(
+		path.Join(blogFolder, "res", "js", "hightlight.js"),
+		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/res/js/highlight.js",
+	)
+	ErrorCheckExit(err)
+	err = initDownload(
 		path.Join(blogFolder, "templates", "home.html"),
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/templates/home.html",
 	)
@@ -91,6 +103,7 @@ func Init(blogFolder string) {
 		"https://gitlab.com/nadimk/formatforest/-/raw/master/examples/posts/2020-04-19-hello.md",
 	)
 	ErrorCheckExit(err)
+	fmt.Println(" OK")
 }
 
 func initDownload(filepath string, url string) error {

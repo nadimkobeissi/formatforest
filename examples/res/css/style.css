@@ -78,10 +78,6 @@ hr {
 }
 
 pre {
-	background-color: rgba(0, 80, 0, 0.05);
-	padding: 2px 10px;
-	border: 1px solid #CCC;
-	border-radius: 2px;
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	font-size: 0.9em;

@@ -9,9 +9,6 @@ import (
 )
 
 func Sync() {
-	fmt.Println("[FormatForest] In order for sync to succeed,")
-	fmt.Println("               rsync must be installed.")
-	fmt.Println("")
 	configJson := parseConfig()
 	syncExec(configJson)
 }
@@ -23,4 +20,5 @@ func syncExec(config config) {
 	rsync.Dir = "public"
 	err := rsync.Run()
 	ErrorCheckExit(err)
+	fmt.Println(" OK")
 }
