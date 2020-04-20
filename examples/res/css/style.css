@@ -115,14 +115,11 @@ blockquote {
 	box-shadow: 0 0 5px #999;
 }
 
-div.content div.section img.figure,
-div.content div.section img.figuresmall,
-div.content div.section img.figuresemiwide,
-div.content div.section img.figurewide {
+div.content div.postContent img {
 	margin: 20px auto;
 	display: block;
-	max-width: 60%;
-	max-height: 300px;
+	max-width: 75%;
+	max-height: 500px;
 	border: 3px solid rgba(250, 250, 250, 0.5);
 	box-shadow: 0 0 5px #999;
 	border-radius: 5px;
@@ -143,21 +140,6 @@ div.content div.section h1.websiteName {
 div.content div.section p.websiteDescription {
 	margin-top: 30px;
 	min-height: 90px;
-}
-
-div.content div.section img.figuresmall {
-	max-width: 40%;
-	max-height: 200px;
-}
-
-div.content div.section img.figuresemiwide {
-	max-width: 80%;
-	max-height: 100%;
-}
-
-div.content div.section img.figurewide {
-	max-width: 100%;
-	max-height: 100%;
 }
 
 div.content div.footer {
