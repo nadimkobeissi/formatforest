@@ -60,10 +60,6 @@ h4 {
 	font-size: 1.5em;
 }
 
-strong {
-	color: #333;
-}
-
 hr {
 	border: 0;
 	height: 1px;
@@ -101,7 +97,6 @@ div.content div.section h2 {
 div.content div.section span.date {
 	margin: 0 0 0 0;
 	font-style: italic;
-	color: #AAA;
 	display: block;
 }
 
@@ -178,5 +173,9 @@ div#commento {
 	html {
 		background-color: #171717;
 		color: #FFF;
+	}
+
+	a {
+		color: #34BEED;
 	}
 }
