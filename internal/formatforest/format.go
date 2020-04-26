@@ -98,6 +98,13 @@ func formatStandard(html string, config config) string {
 func formatPost(html string, post post, config config) string {
 	html = formatStandard(html, config)
 	t, _ := time.Parse("2006-01-02", post.date)
+	commentoHead := ""
+	if config.CommentoIntegration {
+		commentoHead = fmt.Sprintf(
+			"<script defer src=\"%s\" data-page-id=\"%s\"></script>",
+			"https://cdn.commento.io/js/commento.js", post.tag,
+		)
+	}
 	html = strings.ReplaceAll(
 		html, "{{FF:PostDate:FF}}", post.date,
 	)
@@ -118,6 +125,9 @@ func formatPost(html string, post post, config config) string {
 	)
 	html = strings.ReplaceAll(
 		html, "{{FF:PostContent:FF}}", post.content,
+	)
+	html = strings.ReplaceAll(
+		html, "{{FF:CommentoHead:FF}}", commentoHead,
 	)
 	return html
 }

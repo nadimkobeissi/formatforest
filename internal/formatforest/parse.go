@@ -11,22 +11,23 @@ import (
 )
 
 type config struct {
-	WebsiteName        string
-	WebsiteUri         string
-	WebsiteDescription string
-	WebsiteIcon        string
-	WebsiteTwitter     string
-	WebsiteLang        string
-	WebsiteLangDir     string
-	AuthorName         string
-	AuthorEmail        string
-	AuthorTwitter      string
-	AuthorLinkedIn     string
-	AuthorFacebook     string
-	AuthorInstagram    string
-	SyncUser           string
-	SyncHost           string
-	SyncPath           string
+	WebsiteName         string
+	WebsiteUri          string
+	WebsiteDescription  string
+	WebsiteIcon         string
+	WebsiteTwitter      string
+	WebsiteLang         string
+	WebsiteLangDir      string
+	AuthorName          string
+	AuthorEmail         string
+	AuthorTwitter       string
+	AuthorLinkedIn      string
+	AuthorFacebook      string
+	AuthorInstagram     string
+	CommentoIntegration bool
+	SyncUser            string
+	SyncHost            string
+	SyncPath            string
 }
 
 func parseConfig() config {

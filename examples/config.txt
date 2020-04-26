@@ -12,6 +12,7 @@
 	"AuthorLinkedIn": "nadimkobeissi",
 	"AuthorFacebook": "",
 	"AuthorInstagram": "",
+	"CommentoIntegration": false,
 	"SyncUser": "nadim",
 	"SyncHost": "formatforest.com",
 	"SyncPath": "/usr/share/nginx/formatforest.com"
