@@ -101,8 +101,8 @@ func formatPost(html string, post post, config config) string {
 	commentoHead := ""
 	if config.CommentoIntegration {
 		commentoHead = fmt.Sprintf(
-			"<script defer src=\"%s\" data-page-id=\"%s\"></script>",
-			"https://cdn.commento.io/js/commento.js", post.tag,
+			"<script defer src=\"%s\" data-page-id=\"%s-%s\"></script>",
+			"https://cdn.commento.io/js/commento.js", post.date, post.tag,
 		)
 	}
 	html = strings.ReplaceAll(
