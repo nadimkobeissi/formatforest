@@ -2,24 +2,24 @@
 class Formatforest < Formula
   desc "Simple and elegant blogging engine written in Go."
   homepage "https://formatforest.com"
-  version "0.0.1"
+  version "0.0.2"
   bottle :unneeded
 
   if OS.mac?
-    url "https://gitlab.com/nadimk/formatforest/uploads//formatforest_0.0.1_macos_amd64.zip"
-    sha256 "b3842f7f3e0ce581ecaf9e4a90c79e286c6c47f4144adbe3b2a1b9175e76d572"
+    url "https://gitlab.com/nadimk/formatforest/uploads//formatforest_0.0.2_macos_amd64.zip"
+    sha256 "5ee3330811122d88a34de6eb92d78158cf053d2395942671a1ecd480f9f894c2"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://gitlab.com/nadimk/formatforest/uploads//formatforest_0.0.1_linux_amd64.zip"
-      sha256 "00b4cec14367ee50a536341b65835167f828c1f28cadecba9442bdc052e44792"
+      url "https://gitlab.com/nadimk/formatforest/uploads//formatforest_0.0.2_linux_amd64.zip"
+      sha256 "ed88fcec3783d86b61772e249cac548a13586e871e2e2d0e3a733dbf01c807c4"
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://gitlab.com/nadimk/formatforest/uploads//formatforest_0.0.1_linux_arm64.zip"
-        sha256 "a8160b2c241edb5e9ff95c66bb23c7051dad08560e73f5bf36a3e21e370b317c"
+        url "https://gitlab.com/nadimk/formatforest/uploads//formatforest_0.0.2_linux_arm64.zip"
+        sha256 "d633bd6bf18625de3c2cd1c89cc27aaad19ef49692866682bcfa91428c75cf0d"
       else
-        url "https://gitlab.com/nadimk/formatforest/uploads//formatforest_0.0.1_linux_armv6.zip"
-        sha256 "4c624f3eb9a42f3edd8b04ff289d871d502d70e18cf4a5f703648dbc38837689"
+        url "https://gitlab.com/nadimk/formatforest/uploads//formatforest_0.0.2_linux_armv6.zip"
+        sha256 "ac2bc0ce29dfbdef2576f7652de7610974eff5fe6f92c337a5815bf636f3418c"
       end
     end
   end
