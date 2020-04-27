@@ -98,6 +98,24 @@ div.content div.section span.date {
 	margin: 0 0 0 0;
 	font-style: italic;
 	display: block;
+	font-variant: small-caps;
+}
+
+div.content div.section img.rss {
+	width: 20px;
+	height: auto;
+	display: inline !important;
+	margin: none !important;
+	border: none;
+	box-shadow: none;
+	border-radius: none;
+}
+
+div.content div.section span.rss {
+	font-size: 0.8em;
+	font-variant: small-caps;
+	position: relative;
+	bottom: 4px;
 }
 
 blockquote {
