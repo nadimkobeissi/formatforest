@@ -86,8 +86,9 @@ func writeRss(posts []post, config config) {
 		"templates/rss.xml",
 	)
 	ErrorCheckExit(err)
-	postsRssXml := strings.ReplaceAll(
-		string(postsRssXmlBytes),
+	postsRssXml := formatStandard(string(postsRssXmlBytes), config)
+	postsRssXml = strings.ReplaceAll(
+		postsRssXml,
 		"{{FF:PostRss:FF}}", formatRss(posts, config),
 	)
 	err = ioutil.WriteFile(

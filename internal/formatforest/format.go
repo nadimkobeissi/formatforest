@@ -150,13 +150,14 @@ func formatRss(posts []post, config config) string {
 			"<item>",
 			"<title>{{FF:PostTitle:FF}}</title>",
 			"<link>{{FF:WebsiteUri:FF}}/posts/{{FF:PostDate:FF}}-{{FF:PostTag:FF}}.html</link>",
-			"<dc:creator><![CDATA[{{FF:WebsiteAuthor:FF}}]]></dc:creator>",
+			"<dc:creator><![CDATA[{{FF:AuthorName:FF}}]]></dc:creator>",
 			"<pubDate>{{FF:PostRssDate:FF}}</pubDate>",
 			"<description><![CDATA[{{FF:PostDescription:FF}}]]></description>",
 			"<content:encoded><![CDATA[{{FF:PostContent:FF}}]]></content:encoded>",
 			"<media:thumbnail url=\"{{FF:WebsiteUri:FF}}/res/img/{{FF:PostImage:FF}}\" />",
 			"</item>",
 		}, "\n")
+		postRssXml = formatStandard(postRssXml, config)
 		postRssXml = formatPost(postRssXml, post, config)
 		postsRssXml = append(postsRssXml, postRssXml)
 	}
