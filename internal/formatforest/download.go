@@ -8,7 +8,7 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"path"
+	"path/filepath"
 )
 
 func download(filepath string, url string) error {
@@ -29,47 +29,47 @@ func download(filepath string, url string) error {
 func downloadInitAssets(blogFolder string) {
 	dlPath := "https://gitlab.com/nadimk/formatforest/-/raw/master/examples/"
 	err := download(
-		path.Join(blogFolder, "res", "img", "formatforest.png"),
+		filepath.Join(blogFolder, "res", "img", "formatforest.png"),
 		fmt.Sprintf("%s%s", dlPath, "res/img/formatforest.png"),
 	)
 	ErrorCheckExit(err)
 	err = download(
-		path.Join(blogFolder, "res", "img", "hello.png"),
+		filepath.Join(blogFolder, "res", "img", "hello.png"),
 		fmt.Sprintf("%s%s", dlPath, "res/img/hello.png"),
 	)
 	ErrorCheckExit(err)
 	err = download(
-		path.Join(blogFolder, "res", "css", "style.css"),
+		filepath.Join(blogFolder, "res", "css", "style.css"),
 		fmt.Sprintf("%s%s", dlPath, "res/css/style.css"),
 	)
 	ErrorCheckExit(err)
 	err = download(
-		path.Join(blogFolder, "res", "css", "highlight.css"),
+		filepath.Join(blogFolder, "res", "css", "highlight.css"),
 		fmt.Sprintf("%s%s", dlPath, "res/css/highlight.css"),
 	)
 	ErrorCheckExit(err)
 	err = download(
-		path.Join(blogFolder, "res", "js", "hightlight.js"),
+		filepath.Join(blogFolder, "res", "js", "hightlight.js"),
 		fmt.Sprintf("%s%s", dlPath, "res/js/highlight.js"),
 	)
 	ErrorCheckExit(err)
 	err = download(
-		path.Join(blogFolder, "templates", "home.html"),
+		filepath.Join(blogFolder, "templates", "home.html"),
 		fmt.Sprintf("%s%s", dlPath, "templates/home.html"),
 	)
 	ErrorCheckExit(err)
 	err = download(
-		path.Join(blogFolder, "templates", "post.html"),
+		filepath.Join(blogFolder, "templates", "post.html"),
 		fmt.Sprintf("%s%s", dlPath, "templates/post.html"),
 	)
 	ErrorCheckExit(err)
 	err = download(
-		path.Join(blogFolder, "templates", "rss.xml"),
+		filepath.Join(blogFolder, "templates", "rss.xml"),
 		fmt.Sprintf("%s%s", dlPath, "templates/rss.xml"),
 	)
 	ErrorCheckExit(err)
 	err = download(
-		path.Join(blogFolder, "posts", "2020-04-19-hello.md"),
+		filepath.Join(blogFolder, "posts", "2020-04-19-hello.md"),
 		fmt.Sprintf("%s%s", dlPath, "posts/2020-04-19-hello.md"),
 	)
 	ErrorCheckExit(err)

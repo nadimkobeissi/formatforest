@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"path"
+	"path/filepath"
 	"strings"
 
 	"github.com/otiai10/copy"
@@ -16,23 +16,23 @@ import (
 func writeInitFolders(blogFolder string) {
 	err := os.Mkdir(blogFolder, 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "posts"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "posts"), 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "public"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "public"), 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "templates"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "templates"), 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "res"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "res"), 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "res", "img"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "res", "img"), 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "res", "css"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "res", "css"), 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "res", "js"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "res", "js"), 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "res", "pdf"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "res", "pdf"), 0755)
 	ErrorCheckExit(err)
-	err = os.Mkdir(path.Join(blogFolder, "res", "zip"), 0755)
+	err = os.Mkdir(filepath.Join(blogFolder, "res", "zip"), 0755)
 	ErrorCheckExit(err)
 }
 
@@ -42,16 +42,16 @@ func writePublicFolders() {
 		err = os.Mkdir("public", 0755)
 		ErrorCheckExit(err)
 	}
-	postsFolderInfo, err := os.Stat(path.Join("public", "posts"))
+	postsFolderInfo, err := os.Stat(filepath.Join("public", "posts"))
 	if err != nil || !postsFolderInfo.IsDir() {
-		err = os.Mkdir(path.Join("public", "posts"), 0755)
+		err = os.Mkdir(filepath.Join("public", "posts"), 0755)
 		ErrorCheckExit(err)
 	}
 }
 
 func writeHome(posts []post, config config) {
 	homeHtmlBytes, err := ioutil.ReadFile(
-		path.Join("templates", "home.html"),
+		filepath.Join("templates", "home.html"),
 	)
 	ErrorCheckExit(err)
 	homeHtml := formatStandard(string(homeHtmlBytes), config)
@@ -59,7 +59,7 @@ func writeHome(posts []post, config config) {
 		homeHtml, "{{FF:PostList:FF}}", formatPostList(posts),
 	)
 	err = ioutil.WriteFile(
-		path.Join("public", "index.html"),
+		filepath.Join("public", "index.html"),
 		[]byte(homeHtml), 0755,
 	)
 	ErrorCheckExit(err)
@@ -67,13 +67,13 @@ func writeHome(posts []post, config config) {
 
 func writePosts(posts []post, config config) {
 	postHtmlBytes, err := ioutil.ReadFile(
-		path.Join("templates", "post.html"),
+		filepath.Join("templates", "post.html"),
 	)
 	ErrorCheckExit(err)
 	for _, post := range posts {
 		postHtml := formatPost(string(postHtmlBytes), post, config)
 		err = ioutil.WriteFile(
-			path.Join("public", "posts",
+			filepath.Join("public", "posts",
 				fmt.Sprintf("%s-%s.html",
 					post.date, post.tag,
 				)), []byte(postHtml), 0755)
@@ -92,13 +92,13 @@ func writeRss(posts []post, config config) {
 		"{{FF:PostRss:FF}}", formatRss(posts, config),
 	)
 	err = ioutil.WriteFile(
-		path.Join("public", "rss.xml"),
+		filepath.Join("public", "rss.xml"),
 		[]byte(postsRssXml), 0755,
 	)
 	ErrorCheckExit(err)
 }
 
 func writeRes() {
-	err := copy.Copy("res", path.Join("public", "res"))
+	err := copy.Copy("res", filepath.Join("public", "res"))
 	ErrorCheckExit(err)
 }

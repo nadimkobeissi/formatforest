@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"path"
+	"path/filepath"
 )
 
 func Init(blogFolder string) {
@@ -50,6 +50,6 @@ func initDefaultConfig(blogFolder string) {
 	}
 	configJsonBytes, err := json.MarshalIndent(configJson, "", "\t")
 	ErrorCheckExit(err)
-	err = ioutil.WriteFile(path.Join(blogFolder, "config.txt"), configJsonBytes, 0755)
+	err = ioutil.WriteFile(filepath.Join(blogFolder, "config.txt"), configJsonBytes, 0755)
 	ErrorCheckExit(err)
 }

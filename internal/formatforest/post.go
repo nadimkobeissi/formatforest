@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -29,7 +29,7 @@ type post struct {
 
 func postRead(file os.FileInfo) post {
 	fileBytes, err := ioutil.ReadFile(
-		path.Join("posts", file.Name()),
+		filepath.Join("posts", file.Name()),
 	)
 	ErrorCheckExit(err)
 	postMd := string(fileBytes)
