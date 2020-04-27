@@ -1,19 +1,19 @@
 {
-    "version": "0.0.3",
+    "version": "0.0.4",
     "architecture": {
         "32bit": {
-            "url": "https://gitlab.com/nadimk/formatforest/uploads/76ba598af39b4c9286cf17b3a5f05645/formatforest_0.0.3_windows_386.zip",
+            "url": "https://gitlab.com/nadimk/formatforest/uploads/dcd9385d1af53c244a587dd5fab58e0b/formatforest_0.0.4_windows_386.zip",
             "bin": [
                 "formatforest.exe"
             ],
-            "hash": "9628bac500c3e8d4209bc4d6e00c6eb819c59fcde7243f676c85365e1a36e8fc"
+            "hash": "ea7c299938042b87aa561d2e804aa84594715aa13621bab00cb8171b105f3142"
         },
         "64bit": {
-            "url": "https://gitlab.com/nadimk/formatforest/uploads/01f127e54903d010601e14c4c085fe51/formatforest_0.0.3_windows_amd64.zip",
+            "url": "https://gitlab.com/nadimk/formatforest/uploads/5b26a2e0f7777652b5d54b33fbcc7b7d/formatforest_0.0.4_windows_amd64.zip",
             "bin": [
                 "formatforest.exe"
             ],
-            "hash": "08c0b5ac1cad952c4a3f4689a7dcd8c384f5002ad84c253d145faa79f95e6416"
+            "hash": "db5a1e321dc7131de5df9b5644b48560f36b96472f51bde3bc858ca1c3a62459"
         }
     },
     "homepage": "https://formatforest.com",
