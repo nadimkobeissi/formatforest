@@ -39,6 +39,11 @@ func downloadInitAssets(blogFolder string) {
 	)
 	ErrorCheckExit(err)
 	err = download(
+		filepath.Join(blogFolder, "res", "img", "rss.svg"),
+		fmt.Sprintf("%s%s", dlPath, "res/img/rss.svg"),
+	)
+	ErrorCheckExit(err)
+	err = download(
 		filepath.Join(blogFolder, "res", "css", "style.css"),
 		fmt.Sprintf("%s%s", dlPath, "res/css/style.css"),
 	)
