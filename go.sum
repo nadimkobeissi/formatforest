@@ -1,5 +1,7 @@
 github.com/gomarkdown/markdown v0.0.0-20200316172748-fd1f3374857d h1:cFE/VFoUSjvIjrkI3YHGUYReJTIPN4fl2etwblBZfgg=
 github.com/gomarkdown/markdown v0.0.0-20200316172748-fd1f3374857d/go.mod h1:aii0r/K0ZnHv7G0KF7xy1v0A7s2Ljrb5byB7MO5p6TU=
+github.com/gomarkdown/markdown v0.0.0-20200513213024-62c5e2c608cc h1:T+Fwk3llJdUIQeBI8fC/ARqRD5mWy3AE5I6ZU3VkIw8=
+github.com/gomarkdown/markdown v0.0.0-20200513213024-62c5e2c608cc/go.mod h1:aii0r/K0ZnHv7G0KF7xy1v0A7s2Ljrb5byB7MO5p6TU=
 github.com/otiai10/copy v1.1.1 h1:PH7IFlRQ6Fv9vYmuXbDRLdgTHoP1w483kPNUP2bskpo=
 github.com/otiai10/copy v1.1.1/go.mod h1:rrF5dJ5F0t/EWSYODDu4j9/vEeYHMkc8jt0zJChqQWw=
 github.com/otiai10/curr v0.0.0-20150429015615-9b4961190c95/go.mod h1:9qAhocn7zKJG+0mI8eUu6xqkFDYS2kb2saOteoSB3cE=

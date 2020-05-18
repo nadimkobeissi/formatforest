@@ -11,7 +11,7 @@ import (
 	"formatforest.com/internal/formatforest"
 )
 
-var version = "0.0.4"
+var version = "0.0.5"
 
 func main() {
 	mainIntro()
