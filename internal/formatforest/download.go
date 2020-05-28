@@ -54,7 +54,7 @@ func downloadInitAssets(blogFolder string) {
 	)
 	ErrorCheckExit(err)
 	err = download(
-		filepath.Join(blogFolder, "res", "js", "hightlight.js"),
+		filepath.Join(blogFolder, "res", "js", "highlight.js"),
 		fmt.Sprintf("%s%s", dlPath, "res/js/highlight.js"),
 	)
 	ErrorCheckExit(err)
