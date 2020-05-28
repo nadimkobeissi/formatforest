@@ -2,24 +2,24 @@
 class Formatforest < Formula
   desc "Simple and elegant blogging engine written in Go."
   homepage "https://formatforest.com"
-  version "0.0.5"
+  version "0.0.6"
   bottle :unneeded
 
   if OS.mac?
-    url "https://gitlab.com/nadimk/formatforest/uploads/9b1b89b15670b535dc0873fe8eeb7469/formatforest_0.0.5_macos_amd64.zip"
-    sha256 "e1e1735e891c9e7084c8660a0a639eb3ee216237b7cd02eb010a7fd92658bb4c"
+    url "https://gitlab.com/nadimk/formatforest/uploads/f826f9f9ea49e66574a41c39a86cd9d2/formatforest_0.0.6_macos_amd64.zip"
+    sha256 "8248bcd3fd7bd0c429f945cc22bfa187fd1a3762ac4fef6b1d883f4393c79dc8"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://gitlab.com/nadimk/formatforest/uploads/785642498186b53edb60686a4e7fed69/formatforest_0.0.5_linux_amd64.zip"
-      sha256 "07ba14857d97cce6a1eb21b53bc3eda621cf990d68ed08a0379915c529eb330d"
+      url "https://gitlab.com/nadimk/formatforest/uploads/432eb6fe2e90c0e187d63eb78b323352/formatforest_0.0.6_linux_amd64.zip"
+      sha256 "987acec8b28317486c427103bc7aa5dc8fef1f1fad2494e1af5a57699e73a183"
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://gitlab.com/nadimk/formatforest/uploads/265d2532a6ddce72d28f877b32f18694/formatforest_0.0.5_linux_arm64.zip"
-        sha256 "4179a7b465b16011d390cbe5cb32da6bf2785e92ff951a7b23274dd93de9137c"
+        url "https://gitlab.com/nadimk/formatforest/uploads/83fc1c5b7766acc2d9f96abf14f5fd39/formatforest_0.0.6_linux_arm64.zip"
+        sha256 "dc8b5eefd366fd1feddc966878b29ab8c6ffcb9e3878fe21ec0caf5d3ad0148a"
       else
-        url "https://gitlab.com/nadimk/formatforest/uploads/dba857333e916356649f1f5a56f67eb3/formatforest_0.0.5_linux_armv6.zip"
-        sha256 "3a8d19b1d31b06338413e5ff14206e2d61f99de3cb359b82f85c03171155a7cf"
+        url "https://gitlab.com/nadimk/formatforest/uploads/a178f6b900a9072a1debaad4b8aec4e6/formatforest_0.0.6_linux_armv6.zip"
+        sha256 "b286e5bb49298856a7d42284b537630c1cc9154aec54f90e7f79982bdfc01845"
       end
     end
   end
