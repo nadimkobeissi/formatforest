@@ -36,7 +36,7 @@ Please note that `init` requires an Internet connection in order to download som
 Simply open `config.txt` using a text editor and modify the values. They are self-explanatory:
 
 - `WebsiteName`: Your website's name.
-- `WebsiteUri`: Your website's URL.
+- `WebsiteURI`: Your website's URL.
 - `WebsiteDescription`: A small description for your website, one paragraph.
 - `WebsiteIcon`: An icon for your website. Store the icon file in `res/img`. For example, if your icon is located in `res/img/myIcon.png`, then simply set this parameter to `"myIcon.png"`. Do not type the full path.
 - `WebsiteTwitter`: Your Twitter handle. Do not include the `@`.

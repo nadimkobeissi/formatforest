@@ -8,11 +8,12 @@ import (
 	"os/exec"
 )
 
+// Sync synchronizes the FormatForest public files with a remote server.
 func Sync() {
 	fmt.Printf("[FormatForest] Parsing config.txt...")
-	configJson := parseConfig()
+	configJSON := parseConfig()
 	fmt.Println(" OK")
-	syncExec(configJson)
+	syncExec(configJSON)
 }
 
 func syncExec(config config) {

@@ -50,50 +50,47 @@ func writePublicFolders() {
 }
 
 func writeHome(posts []post, config config) {
-	homeHtmlBytes, err := ioutil.ReadFile(
+	homeHTMLBytes, err := ioutil.ReadFile(
 		filepath.Join("templates", "home.html"),
 	)
 	ErrorCheckExit(err)
-	homeHtml := formatStandard(string(homeHtmlBytes), config)
-	homeHtml = strings.ReplaceAll(
-		homeHtml, "{{FF:PostList:FF}}", formatPostList(posts),
-	)
+	homeHTML := formatStandard(string(homeHTMLBytes), config, posts)
 	err = ioutil.WriteFile(
 		filepath.Join("public", "index.html"),
-		[]byte(homeHtml), 0755,
+		[]byte(homeHTML), 0755,
 	)
 	ErrorCheckExit(err)
 }
 
 func writePosts(posts []post, config config) {
-	postHtmlBytes, err := ioutil.ReadFile(
+	postHTMLBytes, err := ioutil.ReadFile(
 		filepath.Join("templates", "post.html"),
 	)
 	ErrorCheckExit(err)
 	for _, post := range posts {
-		postHtml := formatPost(string(postHtmlBytes), post, config)
+		postHTML := formatPost(string(postHTMLBytes), post, config)
 		err = ioutil.WriteFile(
 			filepath.Join("public", "posts",
 				fmt.Sprintf("%s-%s.html",
 					post.date, post.tag,
-				)), []byte(postHtml), 0755)
+				)), []byte(postHTML), 0755)
 		ErrorCheckExit(err)
 	}
 }
 
 func writeRss(posts []post, config config) {
-	postsRssXmlBytes, err := ioutil.ReadFile(
+	postsRSSXMLBytes, err := ioutil.ReadFile(
 		"templates/rss.xml",
 	)
 	ErrorCheckExit(err)
-	postsRssXml := formatStandard(string(postsRssXmlBytes), config)
-	postsRssXml = strings.ReplaceAll(
-		postsRssXml,
+	postsRSSXML := formatStandard(string(postsRSSXMLBytes), config, posts)
+	postsRSSXML = strings.ReplaceAll(
+		postsRSSXML,
 		"{{FF:PostRss:FF}}", formatRss(posts, config),
 	)
 	err = ioutil.WriteFile(
 		filepath.Join("public", "rss.xml"),
-		[]byte(postsRssXml), 0755,
+		[]byte(postsRSSXML), 0755,
 	)
 	ErrorCheckExit(err)
 }

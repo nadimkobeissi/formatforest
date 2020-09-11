@@ -12,7 +12,7 @@ import (
 
 type config struct {
 	WebsiteName         string
-	WebsiteUri          string
+	WebsiteURI          string
 	WebsiteDescription  string
 	WebsiteIcon         string
 	WebsiteTwitter      string
@@ -31,31 +31,31 @@ type config struct {
 }
 
 func parseConfig() config {
-	configJson := config{}
+	configJSON := config{}
 	configBytes, err := ioutil.ReadFile("config.txt")
 	ErrorCheckExit(err)
 	configText := string(configBytes)
-	err = json.Unmarshal([]byte(configText), &configJson)
+	err = json.Unmarshal([]byte(configText), &configJSON)
 	ErrorCheckExit(err)
-	if len(configJson.WebsiteName) == 0 {
+	if len(configJSON.WebsiteName) == 0 {
 		ErrorExit(errors.New("invalid WebsiteName in config.txt"))
 	}
-	if len(configJson.WebsiteUri) == 0 {
-		ErrorExit(errors.New("invalid WebsiteUri in config.txt"))
+	if len(configJSON.WebsiteURI) == 0 {
+		ErrorExit(errors.New("invalid WebsiteURI in config.txt"))
 	}
-	if len(configJson.WebsiteIcon) == 0 {
-		configJson.WebsiteIcon = "formatforest.png"
+	if len(configJSON.WebsiteIcon) == 0 {
+		configJSON.WebsiteIcon = "formatforest.png"
 	}
-	if len(configJson.WebsiteLang) == 0 {
-		configJson.WebsiteLang = "en"
+	if len(configJSON.WebsiteLang) == 0 {
+		configJSON.WebsiteLang = "en"
 	}
-	if len(configJson.WebsiteLangDir) == 0 {
-		configJson.WebsiteLangDir = "ltr"
+	if len(configJSON.WebsiteLangDir) == 0 {
+		configJSON.WebsiteLangDir = "ltr"
 	}
-	if len(configJson.AuthorName) == 0 {
+	if len(configJSON.AuthorName) == 0 {
 		ErrorExit(errors.New("invalid AuthorName in config.txt"))
 	}
-	return configJson
+	return configJSON
 }
 
 func parsePost(postMd string) (postConfig, string) {

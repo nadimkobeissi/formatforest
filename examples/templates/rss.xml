@@ -12,16 +12,16 @@
 	<channel>
 		<title>{{FF:WebsiteName:FF}}</title>
 		<atom:link href="https://nadim.computer/posts/rss.xml" rel="self" type="application/rss+xml" />
-		<link>{{FF:WebsiteUri:FF}}</link>
+		<link>{{FF:WebsiteURI:FF}}</link>
 		<description>{{FF:WebsiteDescription:FF}}</description>
 		<language>en</language>
 		<sy:updatePeriod>daily</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
-		<generator>{{FF:WebsiteUri:FF}}</generator>
+		<generator>{{FF:WebsiteURI:FF}}</generator>
 		<image>
-			<url>{{FF:WebsiteUri:FF}}/res/img/{{FF:WebsiteIcon:FF}}</url>
+			<url>{{FF:WebsiteURI:FF}}/res/img/{{FF:WebsiteIcon:FF}}</url>
 			<title>{{FF:WebsiteName:FF}}</title>
-			<link>{{FF:WebsiteUri:FF}}</link>
+			<link>{{FF:WebsiteURI:FF}}</link>
 			<width>32</width>
 			<height>32</height>
 		</image>

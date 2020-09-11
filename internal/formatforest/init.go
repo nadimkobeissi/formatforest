@@ -12,6 +12,7 @@ import (
 	"path/filepath"
 )
 
+// Init initializes a FormatForest blog based on a clean template.
 func Init(blogFolder string) {
 	_, err := os.Stat(blogFolder)
 	if err == nil {
@@ -29,9 +30,9 @@ func Init(blogFolder string) {
 }
 
 func initDefaultConfig(blogFolder string) {
-	configJson := config{
+	configJSON := config{
 		WebsiteName:         "My FormatForest Blog",
-		WebsiteUri:          "https://myblog.com",
+		WebsiteURI:          "https://myblog.com",
 		WebsiteDescription:  "Welcome to my personal blog.",
 		WebsiteIcon:         "formatforest.png",
 		WebsiteTwitter:      "forestformat",
@@ -48,8 +49,8 @@ func initDefaultConfig(blogFolder string) {
 		SyncHost:            "myblog.com",
 		SyncPath:            "/var/www/myblog.com",
 	}
-	configJsonBytes, err := json.MarshalIndent(configJson, "", "\t")
+	configJSONBytes, err := json.MarshalIndent(configJSON, "", "\t")
 	ErrorCheckExit(err)
-	err = ioutil.WriteFile(filepath.Join(blogFolder, "config.txt"), configJsonBytes, 0755)
+	err = ioutil.WriteFile(filepath.Join(blogFolder, "config.txt"), configJSONBytes, 0755)
 	ErrorCheckExit(err)
 }

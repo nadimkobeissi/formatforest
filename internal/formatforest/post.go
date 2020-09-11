@@ -42,7 +42,7 @@ func postRead(file os.FileInfo) post {
 	date := dateRegex.FindString(fileName)
 	tag := tagRegex.FindString(fileName)
 	postConfig, postMdContent := parsePost(postMd)
-	postHtmlContent := string(markdown.ToHTML([]byte(postMdContent), nil, nil))
+	postHTMLContent := string(markdown.ToHTML([]byte(postMdContent), nil, nil))
 	if len(date) == 0 {
 		ErrorExit(errors.New("date must be in yyyy-mm-dd format"))
 	}
@@ -53,7 +53,7 @@ func postRead(file os.FileInfo) post {
 		date:    date,
 		tag:     tag,
 		config:  postConfig,
-		content: postHtmlContent,
+		content: postHTMLContent,
 	}
 }
 

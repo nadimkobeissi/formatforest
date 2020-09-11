@@ -8,10 +8,12 @@ import (
 	"log"
 )
 
+// ErrorExit exits on error.
 func ErrorExit(err error) {
-	log.Fatal(fmt.Errorf("[FormatForest] Error: %v.\n", err))
+	log.Fatal(fmt.Errorf("%v", err))
 }
 
+// ErrorCheckExit exits if err != nil
 func ErrorCheckExit(err error) {
 	if err != nil {
 		ErrorExit(err)
