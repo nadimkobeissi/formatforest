@@ -27,7 +27,7 @@ func download(filepath string, url string) error {
 }
 
 func downloadInitAssets(blogFolder string) {
-	dlPath := "https://gitlab.com/nadimk/formatforest/-/raw/master/examples/"
+	dlPath := "https://gitlab.com/nadimkobeissi/formatforest/-/raw/master/examples/"
 	err := download(
 		filepath.Join(blogFolder, "res", "img", "formatforest.png"),
 		fmt.Sprintf("%s%s", dlPath, "res/img/formatforest.png"),

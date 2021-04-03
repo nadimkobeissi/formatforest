@@ -6,19 +6,19 @@ class Formatforest < Formula
   bottle :unneeded
 
   if OS.mac?
-    url "https://gitlab.com/nadimk/formatforest/uploads/f826f9f9ea49e66574a41c39a86cd9d2/formatforest_0.0.6_macos_amd64.zip"
+    url "https://gitlab.com/nadimkobeissi/formatforest/uploads/f826f9f9ea49e66574a41c39a86cd9d2/formatforest_0.0.6_macos_amd64.zip"
     sha256 "8248bcd3fd7bd0c429f945cc22bfa187fd1a3762ac4fef6b1d883f4393c79dc8"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://gitlab.com/nadimk/formatforest/uploads/432eb6fe2e90c0e187d63eb78b323352/formatforest_0.0.6_linux_amd64.zip"
+      url "https://gitlab.com/nadimkobeissi/formatforest/uploads/432eb6fe2e90c0e187d63eb78b323352/formatforest_0.0.6_linux_amd64.zip"
       sha256 "987acec8b28317486c427103bc7aa5dc8fef1f1fad2494e1af5a57699e73a183"
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://gitlab.com/nadimk/formatforest/uploads/83fc1c5b7766acc2d9f96abf14f5fd39/formatforest_0.0.6_linux_arm64.zip"
+        url "https://gitlab.com/nadimkobeissi/formatforest/uploads/83fc1c5b7766acc2d9f96abf14f5fd39/formatforest_0.0.6_linux_arm64.zip"
         sha256 "dc8b5eefd366fd1feddc966878b29ab8c6ffcb9e3878fe21ec0caf5d3ad0148a"
       else
-        url "https://gitlab.com/nadimk/formatforest/uploads/a178f6b900a9072a1debaad4b8aec4e6/formatforest_0.0.6_linux_armv6.zip"
+        url "https://gitlab.com/nadimkobeissi/formatforest/uploads/a178f6b900a9072a1debaad4b8aec4e6/formatforest_0.0.6_linux_armv6.zip"
         sha256 "b286e5bb49298856a7d42284b537630c1cc9154aec54f90e7f79982bdfc01845"
       end
     end
