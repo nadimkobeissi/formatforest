@@ -117,7 +117,7 @@ FormatForest will find the following **template tags** inside HTML templates and
 - `CurrentDay`: The current day in numeric format.
 
 ## Discussion
-Please check out the [FormatForest source code repository](https://gitlab.com/nadimkobeissi/formatforest) to discuss and contribute.
+Please check out the [FormatForest source code repository](https://github.com/nadimkobeissi/formatforest) to discuss and contribute.
 
 ## License
 FormatForest is authored by Nadim Kobeissi. It is provided as free and open source software, licensed under the [GNU General Public License, version 3](https://www.gnu.org/licenses/gpl-3.0.en.html).
