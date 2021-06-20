@@ -62,9 +62,11 @@ func postReadAll() []post {
 	dirInfo, err := ioutil.ReadDir("posts")
 	ErrorCheckExit(err)
 	for _, file := range dirInfo {
-		posts = append([]post{
-			postRead(file),
-		}, posts...)
+		if filepath.Ext(file.Name()) == ".md" {
+			posts = append([]post{
+				postRead(file),
+			}, posts...)
+		}
 	}
 	return posts
 }
