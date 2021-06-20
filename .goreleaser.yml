@@ -29,28 +29,28 @@ changelog:
   sort: asc
 
 release:
-  gitlab:
-    owner: nadimk
+  github:
+    owner: nadimkobeissi
     name: formatforest
 
 brews:
-  - gitlab:
-      owner: nadimk
+  - github:
+      owner: nadimkobeissi
       name: formatforest
     commit_author:
       name: Nadim Kobeissi
-      email: nadim@nadim.computer
+      email: nadim.kobeissi@outlook.com
     folder: HomebrewFormula
     homepage: "https://formatforest.com"
     description: "Simple and elegant blogging engine written in Go."
 
 scoop:
   bucket:
-    owner: nadimk
+    owner: nadimkobeissi
     name: formatforest
   commit_author:
     name: Nadim Kobeissi
-    email: nadim@nadim.computer
+    email: nadim.kobeissi@outlook.com
   homepage: "https://formatforest.com"
   description: "Simple and elegant blogging engine written in Go."
   license: "https://www.gnu.org/licenses/gpl-3.0.en.html"
