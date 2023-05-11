@@ -19,7 +19,7 @@ FormatForest is only suited for personal blogs operated by a single individual. 
 Let's set up a blog using FormatForest.
 
 ### Step 1: Initializing a Blog
-1. Install FormatForest as a system command: `go get -u formatforest.com/cmd/formatforest`
+1. Install FormatForest as a system command: `go install formatforest.com/cmd/formatforest@latest`
 2. Type `formatforest init myBlog` to create a new FormatForest blog in a folder called `myBlog`.
 
 The folder `myBlog` will contain:
