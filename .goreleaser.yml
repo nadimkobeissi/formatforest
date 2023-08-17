@@ -16,8 +16,6 @@ builds:
       - arm
 
 archives:
-  - replacements:
-      darwin: macos
     format: zip
     files:
       - LICENSE
@@ -34,7 +32,7 @@ release:
     name: formatforest
 
 brews:
-  - github:
+  - tap:
       owner: nadimkobeissi
       name: formatforest
     commit_author:
