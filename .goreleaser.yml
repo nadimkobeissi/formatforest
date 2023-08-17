@@ -32,7 +32,7 @@ release:
     name: formatforest
 
 brews:
-  - tap:
+  - repository:
       owner: nadimkobeissi
       name: formatforest
     commit_author:
@@ -42,8 +42,8 @@ brews:
     homepage: "https://formatforest.com"
     description: "Simple and elegant blogging engine written in Go."
 
-scoop:
-  bucket:
+scoops:
+  repository:
     owner: nadimkobeissi
     name: formatforest
   commit_author:
