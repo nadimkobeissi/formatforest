@@ -28,7 +28,7 @@ type post struct {
 }
 
 func postRead(file os.FileInfo) post {
-	fileBytes, err := ioutil.ReadFile(
+	fileBytes, err := os.ReadFile(
 		filepath.Join("posts", file.Name()),
 	)
 	ErrorCheckExit(err)

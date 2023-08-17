@@ -6,7 +6,7 @@ package formatforest
 import (
 	"encoding/json"
 	"errors"
-	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -32,7 +32,7 @@ type config struct {
 
 func parseConfig() config {
 	configJSON := config{}
-	configBytes, err := ioutil.ReadFile("config.txt")
+	configBytes, err := os.ReadFile("config.txt")
 	ErrorCheckExit(err)
 	configText := string(configBytes)
 	err = json.Unmarshal([]byte(configText), &configJSON)

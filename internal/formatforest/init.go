@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 )
@@ -51,6 +50,6 @@ func initDefaultConfig(blogFolder string) {
 	}
 	configJSONBytes, err := json.MarshalIndent(configJSON, "", "\t")
 	ErrorCheckExit(err)
-	err = ioutil.WriteFile(filepath.Join(blogFolder, "config.txt"), configJSONBytes, 0755)
+	err = os.WriteFile(filepath.Join(blogFolder, "config.txt"), configJSONBytes, 0755)
 	ErrorCheckExit(err)
 }

@@ -55,7 +55,7 @@ func writeHome(posts []post, config config) {
 	)
 	ErrorCheckExit(err)
 	homeHTML := formatStandard(string(homeHTMLBytes), config, posts)
-	err = ioutil.WriteFile(
+	err = os.WriteFile(
 		filepath.Join("public", "index.html"),
 		[]byte(homeHTML), 0755,
 	)
