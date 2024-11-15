@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+	xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:atom="http://www.w3.org/2005/Atom" 
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/" 
+	xmlns:georss="http://www.georss.org/georss" 
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" 
+	xmlns:media="http://search.yahoo.com/mrss/">
+
+	<channel>
+		<title>FormatForest</title>
+		<atom:link href="https://nadim.computer/posts/rss.xml" rel="self" type="application/rss+xml" />
+		<link>https://formatforest.com</link>
+		<description>FormatForest is a simple and elegant blogging engine written in Go. The FormatForest website is itself made using FormatForest. How incredible!</description>
+		<language>en</language>
+		<sy:updatePeriod>daily</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+		<generator>https://formatforest.com</generator>
+		<image>
+			<url>https://formatforest.com/res/img/formatforest.png</url>
+			<title>FormatForest</title>
+			<link>https://formatforest.com</link>
+			<width>32</width>
+			<height>32</height>
+		</image>
+		<item>
+<title>Welcome to FormatForest!</title>
+<link>https://formatforest.com/posts/2020-04-19-hello.html</link>
+<dc:creator><![CDATA[Nadim Kobeissi]]></dc:creator>
+<pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+<description><![CDATA[An example FormatForest post.]]></description>
+<content:encoded><![CDATA[<p>FormatForest is a simple and elegant blogging engine written in Go. It was originally developed as a personal project targeting Nadim Kobeissi&rsquo;s <a href="https://nadim.computer">personal blog</a> but has now been rendered open source.</p>
+
+<p>FormatForest is only suited for personal blogs operated by a single individual. Its advantages:</p>
+
+<ul>
+<li><strong>Simplicity and elegance</strong> in the FormatForest design and functionality allow you to focus on growing your writing and personal web presence.</li>
+<li><strong>Complete Markdown support</strong> allows you to draft posts quickly and without fuss.</li>
+<li><strong>Unparallelled security</strong> compared to WordPress and other dynamic blog engines.</li>
+<li><strong>Secure sync over rsync</strong> allows you to publish your website quickly from your local machine.</li>
+<li><strong>Integration with <a href="https://commento.io/">Commento</a></strong>, the fast, privacy-focused commenting platform for easy comment support on all of your posts.</li>
+</ul>
+
+<h2>Getting Started</h2>
+
+<p>Let&rsquo;s set up a blog using FormatForest.</p>
+
+<h3>Step 1: Initializing a Blog</h3>
+
+<ol>
+<li>Install FormatForest as a system command: <code>go get -u formatforest.com/cmd/formatforest</code></li>
+<li>Type <code>formatforest init myBlog</code> to create a new FormatForest blog in a folder called <code>myBlog</code>.</li>
+</ol>
+
+<p>The folder <code>myBlog</code> will contain:</p>
+
+<ul>
+<li><code>config.txt</code>, your master configuration file for your FormatForest blog.</li>
+<li><code>posts</code> folder, where you will write and store your blog posts in Markdown format.</li>
+<li><code>public</code> folder, where FormatForest will generate static HTML to be served via your web server.</li>
+<li><code>res</code> folder, which contains your static resources (includes <code>img</code>, <code>css</code>, <code>js</code>, <code>pdf</code> and <code>zip</code> subfolders).</li>
+<li><code>templates</code> folder, which includes the templates that FormatForest will use to render your formatted static blog.</li>
+</ul>
+
+<p>Please note that <code>init</code> requires an Internet connection in order to download some very small assets for your blog. If you do not have an Internet connection, you can simply create the above files and folders manually and obtain the same effect, minus the boilerplate HTML templates, CSS and images.</p>
+
+<h3>Step 2: Configuring Your Blog</h3>
+
+<p>Simply open <code>config.txt</code> using a text editor and modify the values. They are self-explanatory:</p>
+
+<ul>
+<li><code>WebsiteName</code>: Your website&rsquo;s name.</li>
+<li><code>WebsiteURI</code>: Your website&rsquo;s URL.</li>
+<li><code>WebsiteDescription</code>: A small description for your website, one paragraph.</li>
+<li><code>WebsiteIcon</code>: An icon for your website. Store the icon file in <code>res/img</code>. For example, if your icon is located in <code>res/img/myIcon.png</code>, then simply set this parameter to <code>&quot;myIcon.png&quot;</code>. Do not type the full path.</li>
+<li><code>WebsiteTwitter</code>: Your Twitter handle. Do not include the <code>@</code>.</li>
+<li><code>WebsiteLang</code>: Your website&rsquo;s language.</li>
+<li><code>WebsiteLangDir</code>: Set to <code>ltr</code> for left-to-right languages (such as English or French), <code>rtl</code> for right-to-left languages (such as Arabic or Hebrew.)</li>
+<li><code>AuthorName</code>: Your name.</li>
+<li><code>AuthorEmail</code>: Your email.</li>
+<li><code>AuthorTwitter</code>: Your Twitter handle, otherwise leave empty.</li>
+<li><code>AuthorLinkedIn</code>: Your LinkedIn handle, otherwise leave empty.</li>
+<li><code>AuthorFacebook</code>: Your Facebook handle, otherwise leave empty.</li>
+<li><code>AuthorInstagram</code>: Your Instagram handle, otherwise leave empty.</li>
+<li><code>CommentoIntegration</code>: If your website is signed up with <a href="https://commento.io">Commento</a>, set to true. All blog posts will automatically use Commento for comments.</li>
+<li><code>SyncUser</code>: SSH username for FormatForest&rsquo;s sync feature.</li>
+<li><code>SyncHost</code>: Remote host for FormatForest&rsquo;s sync feature.</li>
+<li><code>SyncPath</code>: Remote directory path for FormatForest&rsquo;s sync feature.</li>
+</ul>
+
+<h3>Step 3: Write Your First Blog Post</h3>
+
+<p>Blog posts are stored in the <code>posts</code> folder and <strong>must imperatively</strong> have a filename with the following format:</p>
+
+<pre><code>2020-04-19-mypost.md
+</code></pre>
+
+<p>In the above, we have the date of publication (year-month-day) and then a <em>post tag</em> which indicates a single-word unique identifier for the post which must be between 1 and 32 characters. <code>.md</code> specifies that this is a Markdown file. If your post filename does not meet the above format, FormatForest will not be able to process your blog.</p>
+
+<p>Here is an example post:</p>
+
+<pre><code>{
+	PostTitle: &quot;My First Post&quot;,
+	PostDescription: &quot;A short description of my post for social media embeds.&quot;,
+	PostImage: &quot;fileNameOfMyImageInResImgFolderForSocialMediaEmbeds.jpg&quot;
+}
+
+## Subtitle
+Hello, and welcome to my post! Thanks for tuning in!
+
+## Conclusion
+Final Fantasy VII Remake is a fantastic game!
+</code></pre>
+
+<p>In FormatForest, the first five lines of a post specify a configuration for that post itself. This must be specified in order for the post to be processed correctly. The rest of the file can be standard Markdown.</p>
+
+<h3>Step 4: Publish Your Blog</h3>
+
+<p>In order to generate the static HTML for your blog, return to your <code>myBlog</code> folder and type: <code>formatforest format</code>. Your website will then be ready inside the <code>public</code> folder.</p>
+
+<p>You may then either:</p>
+
+<ul>
+<li>Serve the <code>public</code> folder locally from your computer as you see fit, or manually upload it somewhere, or,</li>
+<li>Type <code>formatforest sync</code> in order to automatically synchronize your <code>public</code> folder via rsync and SSH to a remote server. rsync must be installed locally for this to work and correct values for <code>SyncUser</code>, <code>SyncHost</code> and <code>SyncPath</code> must be specified in <code>config.txt</code>.</li>
+</ul>
+
+<p>Easy!</p>
+
+<h2>Customizing Your Blog with Templates</h2>
+
+<p>The <code>templates</code> folder contains three templates:</p>
+
+<ul>
+<li><code>home.html</code>: used for your homepage and post listing.</li>
+<li><code>post.html</code>: used for actual posts.</li>
+<li><code>rss.xml</code>: used to generate your blog&rsquo;s RSS feed.</li>
+</ul>
+
+<p>These templates can be fully customized to your liking. The CSS file can be found and modified inside <code>res/css/style.css</code>.</p>
+
+<h3>Template Tags</h3>
+
+<p>FormatForest will find the following <strong>template tags</strong> inside HTML templates and replace them automatically with the appropriate content. Each tag is written in the HTML file in the format <code>{{FF:TagName:FF}}</code>. For example, the <code>PostDate</code> tag would be written as <code>{{FF:PostDate:FF}}</code>.</p>
+
+<h4>Post Tags</h4>
+
+<ul>
+<li><code>PostDate</code>: The date of publication of the post (yyyy-mm-dd), derived from its filename.</li>
+<li><code>PostTag</code>: The tag of the post, derived from its filename.</li>
+<li><code>PostContent</code>: The contents of the post, converted from Markdown to HTML format.</li>
+<li><code>PostList</code>: An HTML list of all the posts in the blog, with links.</li>
+</ul>
+
+<h4>RSS Tags</h4>
+
+<ul>
+<li><code>PostRss</code>: Your posts in RSS format.</li>
+<li><code>PostRssDate</code>: The publication date for your post in RSS-compatible format.</li>
+</ul>
+
+<h4>Miscellaneous Tags</h4>
+
+<ul>
+<li><code>CurrentYear</code>: The current year.</li>
+<li><code>CurrentMonth</code>: The current month in numeric format.</li>
+<li><code>CurrentDay</code>: The current day in numeric format.</li>
+</ul>
+
+<h2>Discussion</h2>
+
+<p>Please check out the <a href="https://github.com/nadimkobeissi/formatforest">FormatForest source code repository</a> to discuss and contribute.</p>
+
+<h2>License</h2>
+
+<p>FormatForest is authored by Nadim Kobeissi. It is provided as free and open source software, licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License, version 3</a>.</p>
+
+<p>© Copyright 2020-2021 Nadim Kobeissi. All Rights Reserved.</p>
+]]></content:encoded>
+<media:thumbnail url="https://formatforest.com/res/img/hello.png" />
+</item>
+	</channel>
+</rss>

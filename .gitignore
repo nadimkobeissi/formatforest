@@ -3,5 +3,3 @@ build/windows/formatforest.exe
 build/linux/formatforest
 build/macos/formatforest
 build/freebsd/formatforest
-examples/formatforest
-examples/public
